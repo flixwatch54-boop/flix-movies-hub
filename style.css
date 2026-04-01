@@ -36,16 +36,8 @@ body {
 
 .navbar a:hover { color: red; }
 
-/* --- Trending --- */
-.section-title {
-    padding: 20px 5% 10px;
-    font-size: 22px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
+/* --- Trending Section (Screenshot Style) --- */
+.section-title { padding: 20px 5% 10px; font-size: 22px; font-weight: bold; }
 .section-title span { color: red; }
 
 .trending-container { position: relative; width: 100%; }
@@ -57,20 +49,18 @@ body {
     padding: 10px 5% 30px;
     scroll-behavior: smooth;
     scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
 }
-
 .trending-wrapper::-webkit-scrollbar { display: none; }
 
 .trending-card {
-    min-width: 280px;
-    height: 160px;
+    position: relative;
+    min-width: 300px;
+    height: 180px;
     background: #222;
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
-    border: 1px solid #333;
-    transition: 0.3s;
     flex-shrink: 0;
+    transition: 0.3s ease;
 }
 
 .trending-card img {
@@ -79,6 +69,51 @@ body {
     object-fit: cover;
     opacity: 0.8;
 }
+
+/* Movie Info Overlay */
+.trending-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 15px 10px;
+    background: linear-gradient(to top, rgba(0,0,0,1) 30%, transparent);
+    box-sizing: border-box;
+    text-align: left; /* Left align like screenshot */
+}
+
+.trending-info h4 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 17px; /* Large Bold Title */
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.movie-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+    color: #bcbcbc; /* Grayish text for meta */
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.movie-meta .separator {
+    color: #444;
+    font-weight: bold;
+}
+
+.trending-badge {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: red; color: #fff;
+    padding: 2px 8px; font-size: 11px;
+    font-weight: bold; border-radius: 3px;
+    z-index: 5;
+}
+
 
 .nav-btn {
     position: absolute;

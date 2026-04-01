@@ -171,9 +171,29 @@
             h1 { font-size: 22px; }
             .volume-panel { width: 100%; justify-content: center; box-sizing: border-box; }
         }
+
+        .navbar{
+          background:#1a1a1a;
+          padding:15px;
+        }
+
+        .navbar a{
+         color:#00bcd4;
+         text-decoration:none;
+         margin-right:15px;
+         font-weight:bold;
+         } 
     </style>
 </head>
 <body>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+  <a href="index.html">🏠 Home</a> |
+  <a href="about.html">ℹ️ About</a> |
+  <a href="contact.html">📩 Contact</a> |
+  <a href="disclaimer.html">⚠️ Disclaimer</a>
+</div>
 
 <div class="container">
     <p id="loading" style="text-align:center; color:#999; padding:40px; font-size: 18px;">✨ Fetching Cinematic Data...</p>
@@ -220,19 +240,19 @@
 <script>
 // --- CONFIGURATION ---
 const API_KEY = "ee08ccfff7200834fd2ac18bdd8fd552"; 
-const MOVIE = "Dhurandhar";
-const YEAR = "2025";    
+const MOVIE = "Dhurandhar: The Revenge";
+const YEAR = "2026";    
 
 const FILE = {
     lang: "Hindi (Uncensored)",
     quality: "480p, 720p, 1080p | DS4K WEB-DL",
-    sizes: { p480: "740MB", HEVCp720: "1.3GB", p720:"2GB", HEVCp1080:"2.9GB", p1080:"4.4GB" },
+    sizes: { p480: "700MB", HEVCp720: "1.3GB", p720:"1.9GB", HEVCp1080:"3GB", p1080:"4.4GB" },
     links: { 
-        p480: "https://store4.gofile.io/download/web/ecfbb78a-a409-4c77-b092-8d4d16501520/Dhurandhar.2025.480p.Hindi.Uncensored.DS4K.WEB-DL.ESub.x264-.mkv", 
-        HEVCp720: "https://file-ap-sgp-2.gofile.io/download/web/c8ba1975-1c7d-419d-b6f5-11bf03591eaf/Dhurandhar.2025.720p.HEVC.Hindi.Uncensored.DS4K.WEB-DL.ESub.x265.mkv",
-        p720:"https://file-ap-sgp-3.gofile.io/download/web/ad250ae8-6894-4c9b-b100-6085675b7aff/Dhurandhar.2025.720p.Hindi.Uncensored.DS4K.WEB-DL.5.1.ESub.x264.mkv",
-        HEVCp1080: "https://file-ap-sgp-3.gofile.io/download/web/bfe723d1-79f4-4c8f-835d-bd1960130045/Dhurandhar.2025.1080p.HEVC.Hindi.Uncensored.DS4K.WEB-DL.5.1.ESub.x265.mkv",
-        p1080: "https://file-ap-sgp-2.gofile.io/download/web/a5b6f530-2eb3-44d0-98e4-0cf9a205da42/Dhurandhar.2025.1080p.Hindi.Uncensored.DS4K.WEB-DL.5.1.ESub.x264-.mkv"
+        p480: "https://hubcloud.foo/drive/ww0bylbjkjwgkwg", 
+        HEVCp720: "https://hubcloud.foo/drive/fq0tfbrtlwqgqbo",
+        p720:"https://hubcloud.foo/drive/f2tozlralzawcbe",
+        HEVCp1080: "https://hubcloud.foo/drive/rqq7dwk4wwqilik",
+        p1080: "https://hubcloud.foo/drive/zaymnecgzcyddya"
     }
 };
 
