@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Download Hub - Watch & Download</title>
+    <style>
+        :root { --accent: #00bcd4; --bg: #0f0f0f; --card: #1e1e1e; --sub-card: #2a2a2a; }
+        body { margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color:white; line-height: 1.6; }
+        .container { max-width:1000px; margin:30px auto; background: var(--card); padding:20px; border-radius:12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        
+        .movie-box { display:flex; flex-wrap:wrap; gap:25px; align-items: flex-start; }
+        .poster { width:300px; border-radius:12px; background: var(--sub-card); min-height:450px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        
+        .details { flex:1; background: var(--sub-card); padding:25px; border-radius:12px; }
+        h1 { color: var(--accent); margin:0 0 15px 0; font-size: 28px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+        .details p { color:#ccc; margin:10px 0; font-size: 15px; }
+        .details strong { color: #fff; }
+        
+        .screenshots { margin-top: 30px; }
+        .ss-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 15px; }
+        .ss-grid img { width:100%; border-radius:8px; border: 1px solid #444; transition: transform 0.3s; }
+        .ss-grid img:hover { transform: scale(1.05); }
+
+        .download-section { text-align:center; margin-top:35px; padding:25px; background: var(--sub-card); border-radius:12px; border: 1px dashed #444; }
+        .download-btn { display:inline-block; margin:10px; padding:15px 25px; background: var(--accent); color:white; font-weight:bold; text-decoration:none; border-radius:8px; min-width: 220px; transition: 0.3s; }
+        .download-btn:hover { background: #0097a7; transform: translateY(-2px); }
+        .size-text { display:block; font-size:13px; color:  blue; margin-top:5px; font-weight: normal; }
+
+        footer { text-align:center; padding:30px; color:#666; font-size: 13px; }
+
+        @media (max-width: 768px) {
+            .movie-box { flex-direction: column; align-items: center; }
+            .poster { width: 100%; max-width: 350px; }
+            .container { margin: 10px; width: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="movie-box">
+        <img class="poster" id="movie-poster" src="https://via.placeholder.com/500x750?text=Loading+Poster..." alt="Poster">
+        
+        <div class="details">
+            <h1 id="movie-title">Loading Movie...</h1>
+            <p><strong style="color:#ffd700;">⭐ IMDb Rating:</strong> <span id="rating-val">--</span>/10</p>
+            <p><strong>Genre:</strong> <span id="movie-genre">--</span></p>
+            <p><strong>Language:</strong> <span id="movie-lang">--</span></p>
+            <p><strong>Quality:</strong> <span id="movie-quality">--</span></p>
+            <p><strong>Duration:</strong> <span id="movie-duration">--</span></p>
+            <p><strong>Storyline:</strong> <br><span id="movie-plot">Fetching movie information from database...</span></p>
+        </div>
+    </div>
+
+    <div class="screenshots" id="ss-section" style="display:none;">
+        <h3>📸 Screenshots & Stills:</h3>
+        <div class="ss-grid" id="screenshot-container"></div>
+    </div>
+
+    <div class="download-section">
+        <h2>📥 High Speed Download Links</h2>
+      <!-- === 480p === -->
+        <a class="download-btn" id="link-480" href="https://vcloud.zip/wysumy0z82owlh1" 
+            target="_blank">⬇ Download 480p 
+            <span class="size-text" id="size-480">Size: --</span>
+        </a>
+      <!-- === 720p === -->
+        <a class="download-btn" id="link-720" href="https://vcloud.zip/2mvmb1gbiivbnm_" 
+            target="_blank">⬇ Download 720p 
+            <span class="size-text" id="size-720">Size: --</span>
+        </a>
+      <!-- === 1080p === -->
+        <a class="download-btn" id="link-1080" href="https://vcloud.zip/6vjv71r6rw1y11q" 
+            target="_blank">⬇ Download 1080p 
+            <span class="size-text" id="size-1080">Size: --</span>
+        </a>
+    </div>
+</div>
+
+<footer>© 2026 Flix Movies Hub • High Quality Movies</footer>
+
+<script>
+    // ================= CONFIGURATION =================
+    const TMDB_API_KEY = "ee08ccfff7200834fd2ac18bdd8fd552"; 
+    const MOVIE_NAME = "the jungle book 2"; // Yahan movie ka naam change karein
+    
+    const MY_FILE_DETAILS = {
+        lang: "Hindi + English (Dual Audio)",
+        quality: "480p | 720p | 1080p - BluRay",
+        sizes: { p480: "300 MB", p720: "900 GB", p1080: "1.5 GB" },
+        links: {
+            // === 480p ===
+            p480: "https://vcloud.zip/wysumy0z82owlh1",
+            // === 720p ===  
+            p720: "https://vcloud.zip/2mvmb1gbiivbnm_",
+            // === 1080p ===
+            p1080: "https://vcloud.zip/6vjv71r6rw1y11q"
+        }
+    };
+
+    // ================= LOGIC =================
+
+    function formatRuntime(minutes) {
+        if(!minutes) return "N/A";
+        const h = Math.floor(minutes / 60);
+        const m = minutes % 60;
+        return `${h}h ${m}m`;
+    }
+
+    async function setupPage() {
+        try {
+            // 1. Movie Search karein
+            const sRes = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(MOVIE_NAME)}`);
+            const sData = await sRes.json();
+            
+            if (sData.results && sData.results.length > 0) {
+                const movieId = sData.results[0].id;
+
+                // 2. Movie ki detailed info aur images fetch karein
+                const dRes = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDB_API_KEY}&append_to_response=images`);
+                const movie = await dRes.json();
+
+                // UI Update karein
+                document.getElementById('movie-title').innerText = `${movie.title} (${movie.release_date.split('-')[0]})`;
+                
+                // Poster logic (agar image na ho to placeholder)
+                const posterImg = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : 'https://via.placeholder.com/500x750?text=No+Poster+Found';
+                document.getElementById('movie-poster').src = posterImg;
+                
+                document.getElementById('rating-val').innerText = movie.vote_average ? movie.vote_average.toFixed(1) : "N/A";
+                document.getElementById('movie-genre').innerText = movie.genres.map(g => g.name).join(', ');
+                document.getElementById('movie-plot').innerText = movie.overview || "No description available.";
+                document.getElementById('movie-duration').innerText = formatRuntime(movie.runtime);
+
+                // Manual File Details fill karein
+                document.getElementById('movie-lang').innerText = MY_FILE_DETAILS.lang;
+                document.getElementById('movie-quality').innerText = MY_FILE_DETAILS.quality;
+                document.getElementById('size-480').innerText = "Size: " + MY_FILE_DETAILS.sizes.p480;
+                document.getElementById('size-720').innerText = "Size: " + MY_FILE_DETAILS.sizes.p720;
+                document.getElementById('size-1080').innerText = "Size: " + MY_FILE_DETAILS.sizes.p1080;
+                
+                document.getElementById('link-480').href = MY_FILE_DETAILS.links.p480;
+                document.getElementById('link-720').href = MY_FILE_DETAILS.links.p720;
+                document.getElementById('link-1080').href = MY_FILE_DETAILS.links.p1080;
+
+                // Screenshots handle karein
+                const ssContainer = document.getElementById('screenshot-container');
+                const backdrops = movie.images.backdrops;
+                
+                if (backdrops && backdrops.length > 0) {
+                    document.getElementById('ss-section').style.display = 'block';
+                    backdrops.slice(0, 4).forEach(img => {
+                        const el = document.createElement('img');
+                        el.src = `https://image.tmdb.org/t/p/w500${img.file_path}`;
+                        ssContainer.appendChild(el);
+                    });
+                }
+            } else {
+                document.getElementById('movie-title').innerText = "Movie Not Found!";
+            }
+        } catch (error) {
+            console.error("Fatal Error:", error);
+            document.getElementById('movie-title').innerText = "Error Loading Details";
+        }
+    }
+
+    // Initialize
+    setupPage();
+</script>
+
+</body>
+</html>

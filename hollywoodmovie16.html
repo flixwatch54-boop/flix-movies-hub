@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Download Hub</title>
+
+    <style>
+        :root { --accent:#00bcd4; --bg:#0f0f0f; --card:#1e1e1e; --sub:#2a2a2a; }
+
+        body {
+            margin:0;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background:var(--bg);
+            color:white;
+        }
+
+        .container {
+            max-width:1000px;
+            margin:20px auto;
+            padding:20px;
+            background:var(--card);
+            border-radius:12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .movie-box {
+            display:flex;
+            flex-wrap:wrap;
+            gap:20px;
+        }
+
+        .poster {
+            width:300px;
+            aspect-ratio:2/3;
+            border-radius:10px;
+            object-fit:cover;
+        }
+
+        .details {
+            flex:1;
+            background:var(--sub);
+            padding:20px;
+            border-radius:10px;
+        }
+
+        h1 { color:var(--accent); margin-top: 0; }
+
+        .screenshots { margin-top:30px; }
+        
+        /* Screenshots Grid Fix */
+        .ss-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Hamesha 4 columns show honge */
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .ss-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid #444;
+            transition: transform 0.3s ease;
+        }
+
+        .ss-grid img:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+        }
+
+        .download-section {
+            text-align:center;
+            margin-top:30px;
+            padding:20px;
+            background:var(--sub);
+            border-radius:10px;
+        }
+
+        .download-btn {
+            display:inline-block;
+            margin:10px;
+            padding:12px 25px;
+            background:var(--accent);
+            color:white;
+            text-decoration:none;
+            border-radius:8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .download-btn:hover { opacity: 0.8; }
+
+        .size-text {
+            display:block;
+            font-size:12px;
+            color: #b0e0e6;
+            margin-top: 4px;
+        }
+
+        .loading {
+            text-align:center;
+            color:#ccc;
+            font-size: 18px;
+            padding: 20px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            .ss-grid { grid-template-columns: repeat(2, 1fr); } /* Mobile par 2x2 dikhega */
+            .poster { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <p class="loading" id="loading">Loading movie details...</p>
+
+    <div class="movie-box" id="content-box" style="display:none;">
+        <img class="poster" id="poster" alt="Movie Poster">
+
+        <div class="details">
+            <h1 id="title"></h1>
+            <p><strong>⭐ Rating:</strong> <span id="rating"></span></p>
+            <p><strong>Genre:</strong> <span id="genre"></span></p>
+            <p><strong>Language:</strong> <span id="lang"></span></p>
+            <p><strong>Quality:</strong> <span id="quality"></span></p>
+            <p><strong>Duration:</strong> <span id="duration"></span></p>
+            <p><strong>Story:</strong><br><span id="plot"></span></p>
+        </div>
+    </div>
+
+    <div class="screenshots" id="ss-section" style="display:none;">
+        <h3>Screenshots</h3>
+        <div class="ss-grid" id="screens"></div>
+    </div>
+
+    <div class="download-section" id="dl-section" style="display:none;">
+        <h2>Download Links</h2>
+        <div id="download-buttons"></div>
+    </div>
+</div>
+
+<script>
+const API_KEY = "ee08ccfff7200834fd2ac18bdd8fd552"; 
+const MOVIE = "The Matrix Revolutions";
+
+const FILE = {
+    lang: "Hindi/English",
+    quality: "480p               | 720p         | 1080p - BluRay",
+    sizes: { p480:"450MB", p720: "1.4GB", p1080: "3.3GB" },
+    links: {
+        p480: "https://vcloud.zip/ib-rk2u2l2ipiok",
+        p720: "https://vcloud.zip/7pwalzn12o1nzp7",
+        p1080: "https://vcloud.zip/f9f91_yppaxsk_6"
+    }
+};
+
+function runtime(m) {
+    if(!m) return "N/A";
+    return Math.floor(m/60) + "h " + (m%60) + "m";
+}
+
+function generateDownloadButtons() {
+    const container = document.getElementById("download-buttons");
+    container.innerHTML = "";
+    Object.keys(FILE.links).forEach(q => {
+        const btn = document.createElement("a");
+        btn.className = "download-btn";
+        btn.href = FILE.links[q];
+        btn.target = "_blank";
+        btn.innerHTML = q.replace("p","") + "p<br><span class='size-text'>" + FILE.sizes[q] + "</span>";
+        container.appendChild(btn);
+    });
+}
+
+async function load() {
+    try {
+        let search = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(MOVIE)}`);
+        let data = await search.json();
+
+        if(!data.results || data.results.length === 0) {
+            document.getElementById("loading").innerText = "Movie Not Found ❌";
+            return;
+        }
+
+        let id = data.results[0].id;
+        let res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=images`);
+        let m = await res.json();
+
+        // UI Updates
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("content-box").style.display = "flex";
+        document.getElementById("dl-section").style.display = "block";
+
+        document.getElementById("title").innerText = m.title + " (" + m.release_date.slice(0,4) + ")";
+        document.getElementById("poster").src = "https://image.tmdb.org/t/p/w500" + m.poster_path;
+        document.getElementById("rating").innerText = m.vote_average.toFixed(1) + "/10";
+        document.getElementById("genre").innerText = m.genres.map(g => g.name).join(", ");
+        document.getElementById("plot").innerText = m.overview;
+        document.getElementById("duration").innerText = runtime(m.runtime);
+
+        document.getElementById("lang").innerText = FILE.lang;
+        document.getElementById("quality").innerText = FILE.quality;
+
+        generateDownloadButtons();
+
+        // Screenshots Logic
+        let ssContainer = document.getElementById("screens");
+        ssContainer.innerHTML = "";
+        
+        if(m.images && m.images.backdrops.length > 0) {
+            document.getElementById("ss-section").style.display = "block";
+            // Sirf pehle 4 images ko display karna
+            m.images.backdrops.slice(0, 4).forEach(img => {
+                let i = document.createElement("img");
+                i.src = "https://image.tmdb.org/t/p/w500" + img.file_path;
+                ssContainer.appendChild(i);
+            });
+        }
+
+    } catch(e) {
+        console.error(e);
+        document.getElementById("loading").innerText = "Error Loading Data ❌";
+    }
+}
+
+load();
+</script>
+
+</body>
+</html>
