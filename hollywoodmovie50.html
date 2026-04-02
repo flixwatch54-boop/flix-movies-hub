@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Download Hub - Premium Player</title>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_CLIENT_ID" crossorigin="anonymous"></script>
-
     <style>
         :root { --accent:#00bcd4; --bg:#0f0f0f; --card:#1e1e1e; --sub:#2a2a2a; }
 
@@ -25,6 +23,20 @@
             background:var(--card);
             border-radius:15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        /* Ad Styling */
+        .ad-slot {
+            margin: 20px 0;
+            text-align: center;
+            background: rgba(255,255,255,0.03);
+            border: 1px dashed #444;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 12px;
         }
 
         .movie-box { display:flex; flex-wrap:wrap; gap:20px; align-items: flex-start; }
@@ -58,7 +70,7 @@
         .player-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             background: #000;
             border-radius: 12px;
             overflow: hidden;
@@ -67,7 +79,7 @@
 
         #player {
             position: absolute;
-            top: -60px; /* Hides YT branding top/bottom */
+            top: -60px;
             left: 0;
             width: 100%;
             height: calc(100% + 120px);
@@ -164,7 +176,7 @@
         }
         .download-btn:hover { background: #0097a7; transform: translateY(-2px); }
         
-        .size-text { display:block; font-size: 12px; color: #2700d4; margin-top: 5px; font-weight: normal; }
+        .size-text { display:block; font-size: 12px; color: #fff; opacity: 0.8; margin-top: 5px; font-weight: normal; }
 
         @media (max-width: 768px) {
             .ss-grid { grid-template-columns: repeat(2, 1fr); }
@@ -177,18 +189,14 @@
         .navbar{
           background:#1a1a1a;
           padding:15px;
-          text-align: center;
         }
 
         .navbar a{
          color:#00bcd4;
          text-decoration:none;
-         margin:0 10px;
+         margin-right:15px;
          font-weight:bold;
          } 
-
-        /* Ads Container Styling */
-        .ad-container { margin: 20px 0; text-align: center; overflow: hidden; min-height: 90px; }
 
     </style>
 </head>
@@ -203,14 +211,8 @@
 
 <div class="container">
 
-    <div class="ad-container" id="top-ad">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-YOUR_AD_CLIENT_ID"
-             data-ad-slot="YOUR_AD_SLOT_ID"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <div class="1fc1cf7710d2fddc388ad8801b586241">
+        ADVERTISEMENT
     </div>
 
     <p id="loading" style="text-align:center; color:#999; padding:40px; font-size: 18px;">✨ Fetching Cinematic Data...</p>
@@ -229,16 +231,6 @@
         </div>
     </div>
 
-    <div class="ad-container" id="middle-ad">
-        <ins class="adsbygoogle"
-             style="display:block; text-align:center;"
-             data-ad-layout="in-article"
-             data-ad-format="fluid"
-             data-ad-client="ca-pub-YOUR_AD_CLIENT_ID"
-             data-ad-slot="YOUR_AD_SLOT_ID"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
     <div class="trailer-section" id="trailer-section">
         <h3>Official Trailer</h3>
         <div class="player-wrapper">
@@ -253,6 +245,10 @@
         </div>
     </div>
 
+    <div class="ad-slot" style="min-height: 250px;">
+        RECOMMENDED FOR YOU
+    </div>
+
     <div class="screenshots" id="ss-section" style="display:none;">
         <h3>Screenshots</h3>
         <div class="ss-grid" id="screens"></div>
@@ -260,45 +256,34 @@
 
     <div class="download-section" id="dl-section" style="display:none;">
         <h3>Secure Download Links</h3>
-
-        <a href="https://www.highperformancegate.com/YOUR_DIRECT_LINK" target="_blank" class="download-btn" style="background:#e91e63;">
-            🚀 High Speed Download<br><span class="size-text" style="color:white;">Direct Mirror Link</span>
-        </a>
+        
+        <div style="margin-bottom: 15px;">
+            <p style="font-size: 10px; color: #555; margin:0;">SPONSORED DOWNLOAD</p>
+        </div>
 
         <div id="download-buttons"></div>
+        
+        <div class=" ">
+            ADVERTISEMENT
+        </div>
     </div>
-
-    <div class="ad-container" id="bottom-ad">
-        <script type="text/javascript">
-            // Example for a Banner Ad (e.g. Adsterra/PropellerAds)
-            atOptions = {
-    'key' : 'a23c20191179565ef9d1ff916583d651',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-            };
-        </script>
-        <script type="text/javascript" src="//www.example-ad-provider.com/invoke.js"></script>
-    </div>
-
 </div>
 
 <script>
 // --- CONFIGURATION ---
 const API_KEY = "ee08ccfff7200834fd2ac18bdd8fd552"; 
-const MOVIE = "Crime 101";
+const MOVIE = "Dolly";
 const YEAR = "2026";    
 
 const FILE = {
     lang: "Dual Audio (Hindi-English)",
-    quality: "480p, 720p, 1080p - DS4K WEB-DL",
+    quality: "480p | 720p | 1080p - DS4K WEB-DL",
     sizes: { p480: "350MB", HEVCp720: "65MB", p720:"910MB", p1080:"6.3GB" },
     links: { 
-        p480: "https://store-eu-par-5.gofile.io/download/web/ca8905aa-d2c0-466e-a379-6ac494a0c6ca/Dolly.2025.480p.WEB-DL.Hindi-English.x264.mkv", 
-        HEVCp720: "https://store5.gofile.io/download/web/e37dd580-95ea-424b-9c3e-9954c643beab/Dolly.2025.720p.10Bit.WEB-DL.Hindi-English.HEVC.x265.mkv",
-        p720:"https://store10.gofile.io/download/web/d72d4c35-b5d3-4644-b1f6-94c135025ab3/Dolly.2025.720p.WEB-DL.Hindi.2.0-English.5.1.x264.mkv",
-        p1080: "https://store-eu-par-5.gofile.io/download/web/e193c81f-f268-4b55-a60c-3ae807ddbd9c/Dolly%20(2026)%201080p%20AMZN%20WEB-DL%20x264%20%5BHindi%20BMS%20AAC%202.0%20256kbps%20%2B%20English%20DDP%205.1%5D.mkv"
+        p480: "YOUR_LINK_1", 
+        HEVCp720: "YOUR_LINK_2",
+        p720:"YOUR_LINK_3",
+        p1080: "YOUR_LINK_4"
     }
 };
 
@@ -318,6 +303,7 @@ function startDownload(btn, url) {
     let seconds = 3;
     btn.style.pointerEvents = "none";
     btn.style.opacity = "0.7";
+    
     const countdown = setInterval(() => {
         btn.innerHTML = `Starting in ${seconds}s...`;
         seconds--;
@@ -331,6 +317,7 @@ function startDownload(btn, url) {
     }, 1000);
 }
 
+// YT API Loader
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -339,6 +326,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 function playTrailer() {
     if(!trailerID) return;
     document.getElementById("video-overlay").style.display = "none";
+    
     player = new YT.Player('player', {
         height: '100%', width: '100%', videoId: trailerID,
         playerVars: { 'autoplay': 1, 'controls': 1, 'modestbranding': 1, 'rel': 0, 'showinfo': 0 },
@@ -393,15 +381,19 @@ async function load() {
     try {
         let search = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(MOVIE)}&primary_release_year=${YEAR}`);
         let data = await search.json();
+        
         if(!data.results.length) { 
             document.getElementById("loading").innerHTML = "Movie Not Found ❌"; 
             return; 
         }
+
         let res = await fetch(`https://api.themoviedb.org/3/movie/${data.results[0].id}?api_key=${API_KEY}&append_to_response=images,videos`);
         let m = await res.json();
+
         document.getElementById("loading").style.display = "none";
         document.getElementById("content-box").style.display = "flex";
         document.getElementById("dl-section").style.display = "block";
+        
         document.getElementById("title").innerText = m.title + " (" + m.release_date.slice(0,4) + ")";
         document.getElementById("rel-date").innerText = m.release_date;
         document.getElementById("poster").src = "https://image.tmdb.org/t/p/w500" + m.poster_path;
@@ -416,11 +408,14 @@ async function load() {
         db.innerHTML = "";
         Object.keys(FILE.links).forEach(q => {
             let label = LABEL_MAP[q] || q;
-            db.innerHTML += `<a href="javascript:void(0)" onclick="startDownload(this, '${FILE.links[q]}')" class="download-btn">${label}<br><span class='size-text'>${FILE.sizes[q]}</span></a>`;
+            db.innerHTML += `
+                <a href="javascript:void(0)" onclick="startDownload(this, '${FILE.links[q]}')" class="download-btn">
+                    ${label}<br><span class='size-text'>${FILE.sizes[q]}</span>
+                </a>`;
         });
 
         if(m.videos && m.videos.results.length > 0) {
-            let trailer = m.videos.results.find(v => v.type === 'Trailer' && v.site === 'YouTube') || m.videos.results[0];
+            let trailer = m.videos.results.find(v => v.type === 'Trailer') || m.videos.results[0];
             if(trailer) {
                 trailerID = trailer.key;
                 document.getElementById("trailer-section").style.display = "block";
@@ -438,7 +433,9 @@ async function load() {
                 ssContainer.appendChild(i);
             });
         }
-    } catch(e) { console.error(e); }
+    } catch(e) { 
+        document.getElementById("loading").innerText = "Network Error ❌"; 
+    }
 }
 load();
 </script>
