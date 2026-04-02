@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Download Hub - Premium Player</title>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_CLIENT_ID" crossorigin="anonymous"></script>
+
+    <style>
+        :root { --accent:#00bcd4; --bg:#0f0f0f; --card:#1e1e1e; --sub:#2a2a2a; }
+
+        body {
+            margin:0;
+            font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background:var(--bg);
+            color:white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width:900px;
+            margin:20px auto;
+            padding:20px;
+            background:var(--card);
+            border-radius:15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        .movie-box { display:flex; flex-wrap:wrap; gap:20px; align-items: flex-start; }
+
+        .poster {
+            width:280px;
+            aspect-ratio:2/3;
+            border-radius:12px;
+            object-fit:cover;
+            border: 1px solid #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .details {
+            flex:1;
+            background:var(--sub);
+            padding:20px;
+            border-radius:12px;
+            font-size: 15px;
+        }
+
+        h1 { color:var(--accent); margin: 0 0 10px 0; font-size: 28px; font-weight: 700; }
+        h3 { border-left: 4px solid var(--accent); padding-left: 12px; margin: 30px 0 15px 0; font-size: 20px; color: #fff; }
+
+        .trailer-section {
+            max-width: 800px;
+            margin: 25px auto;
+            display: none;
+        }
+
+        .player-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        #player {
+            position: absolute;
+            top: -60px; /* Hides YT branding top/bottom */
+            left: 0;
+            width: 100%;
+            height: calc(100% + 120px);
+            z-index: 1;
+        }
+
+        .volume-panel {
+            margin-top: 12px;
+            display: flex !important;
+            align-items: center;
+            gap: 15px;
+            background: var(--sub);
+            padding: 10px 20px;
+            border-radius: 30px;
+            width: fit-content;
+            border: 1px solid #444;
+        }
+
+        .vol-icon {
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--accent);
+            transition: transform 0.2s;
+        }
+        .vol-icon:hover { transform: scale(1.1); }
+
+        #volume-slider {
+            cursor: pointer;
+            width: 120px;
+            height: 5px;
+            accent-color: var(--accent);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .video-overlay::before {
+            content: "";
+            position: absolute;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .play-btn {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 11;
+            border: 4px solid white;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .play-btn:hover { transform: scale(1.15); box-shadow: 0 0 20px var(--accent); }
+
+        .play-btn::after {
+            content: "";
+            border-style: solid;
+            border-width: 15px 0 15px 25px;
+            border-color: transparent transparent transparent white;
+            margin-left: 8px;
+        }
+
+        .ss-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .ss-grid img { width: 100%; border-radius: 8px; border: 1px solid #444; transition: 0.3s; }
+        .ss-grid img:hover { transform: scale(1.05); border-color: var(--accent); }
+
+        .download-section { text-align:center; margin-top:30px; padding:20px; background:var(--sub); border-radius:12px; }
+        
+        .download-btn { 
+            display:inline-block; 
+            margin:8px; 
+            padding:12px 25px; 
+            background:var(--accent); 
+            color:white; 
+            text-decoration:none; 
+            border-radius:10px; 
+            font-weight: bold; 
+            font-size: 16px; 
+            transition: 0.3s;
+            min-width: 130px;
+            box-shadow: 0 4px 10px rgba(0, 188, 212, 0.3);
+        }
+        .download-btn:hover { background: #0097a7; transform: translateY(-2px); }
+        
+        .size-text { display:block; font-size: 12px; color: #2700d4; margin-top: 5px; font-weight: normal; }
+
+        @media (max-width: 768px) {
+            .ss-grid { grid-template-columns: repeat(2, 1fr); }
+            .poster { width: 100%; max-width: 350px; margin: 0 auto; display: block; }
+            .movie-box { flex-direction: column; text-align: center; }
+            h1 { font-size: 22px; }
+            .volume-panel { width: 100%; justify-content: center; box-sizing: border-box; }
+        }
+
+        .navbar{
+          background:#1a1a1a;
+          padding:15px;
+          text-align: center;
+        }
+
+        .navbar a{
+         color:#00bcd4;
+         text-decoration:none;
+         margin:0 10px;
+         font-weight:bold;
+         } 
+
+        /* Ads Container Styling */
+        .ad-container { margin: 20px 0; text-align: center; overflow: hidden; min-height: 90px; }
+
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="index.html">🏠 Home</a> |
+  <a href="about.html">ℹ️ About</a> |
+  <a href="contact.html">📩 Contact</a> |
+  <a href="disclaimer.html">⚠️ Disclaimer</a>
+</div>
+
+<div class="container">
+
+    <div class="ad-container" id="top-ad">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_AD_CLIENT_ID"
+             data-ad-slot="YOUR_AD_SLOT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <p id="loading" style="text-align:center; color:#999; padding:40px; font-size: 18px;">✨ Fetching Cinematic Data...</p>
+
+    <div class="movie-box" id="content-box" style="display:none;">
+        <img class="poster" id="poster" alt="Movie Poster">
+        <div class="details">
+            <h1 id="title"></h1>
+            <p><strong>⭐ Rating:</strong> <span id="rating" style="color: #ffc107;"></span></p>
+            <p><strong>📅 Release Date:</strong> <span id="rel-date"></span></p>
+            <p><strong>Genre:</strong> <span id="genre"></span></p>
+            <p><strong>Language:</strong> <span id="lang"></span></p>
+            <p><strong>Quality:</strong> <span id="quality"></span></p>
+            <p><strong>Duration:</strong> <span id="duration"></span></p>
+            <p><strong>Story:</strong><br><span id="plot" style="color:#bbb; font-style: italic;"></span></p>
+        </div>
+    </div>
+
+    <div class="ad-container" id="middle-ad">
+        <ins class="adsbygoogle"
+             style="display:block; text-align:center;"
+             data-ad-layout="in-article"
+             data-ad-format="fluid"
+             data-ad-client="ca-pub-YOUR_AD_CLIENT_ID"
+             data-ad-slot="YOUR_AD_SLOT_ID"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="trailer-section" id="trailer-section">
+        <h3>Official Trailer</h3>
+        <div class="player-wrapper">
+            <div class="video-overlay" id="video-overlay" onclick="playTrailer()">
+                <div class="play-btn"></div>
+            </div>
+            <div id="player"></div> 
+        </div>
+        <div class="volume-panel" id="vol-panel">
+            <span class="vol-icon" onclick="toggleMute()" id="vol-icon">🔊</span>
+            <input type="range" id="volume-slider" min="0" max="100" value="100" oninput="changeVolume(this.value)">
+        </div>
+    </div>
+
+    <div class="screenshots" id="ss-section" style="display:none;">
+        <h3>Screenshots</h3>
+        <div class="ss-grid" id="screens"></div>
+    </div>
+
+    <div class="download-section" id="dl-section" style="display:none;">
+        <h3>Secure Download Links</h3>
+
+        <a href="https://www.highperformancegate.com/YOUR_DIRECT_LINK" target="_blank" class="download-btn" style="background:#e91e63;">
+            🚀 High Speed Download<br><span class="size-text" style="color:white;">Direct Mirror Link</span>
+        </a>
+
+        <div id="download-buttons"></div>
+    </div>
+
+    <div class="ad-container" id="bottom-ad">
+        <script type="text/javascript">
+            // Example for a Banner Ad (e.g. Adsterra/PropellerAds)
+            atOptions = {
+    'key' : 'a23c20191179565ef9d1ff916583d651',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.example-ad-provider.com/invoke.js"></script>
+    </div>
+
+</div>
+
+<script>
+// --- CONFIGURATION ---
+const API_KEY = "ee08ccfff7200834fd2ac18bdd8fd552"; 
+const MOVIE = "Crime 101";
+const YEAR = "2026";    
+
+const FILE = {
+    lang: "Dual Audio (Hindi-English)",
+    quality: "480p, 720p, 1080p - DS4K WEB-DL",
+    sizes: { p480: "350MB", HEVCp720: "65MB", p720:"910MB", p1080:"6.3GB" },
+    links: { 
+        p480: "https://store-eu-par-5.gofile.io/download/web/ca8905aa-d2c0-466e-a379-6ac494a0c6ca/Dolly.2025.480p.WEB-DL.Hindi-English.x264.mkv", 
+        HEVCp720: "https://store5.gofile.io/download/web/e37dd580-95ea-424b-9c3e-9954c643beab/Dolly.2025.720p.10Bit.WEB-DL.Hindi-English.HEVC.x265.mkv",
+        p720:"https://store10.gofile.io/download/web/d72d4c35-b5d3-4644-b1f6-94c135025ab3/Dolly.2025.720p.WEB-DL.Hindi.2.0-English.5.1.x264.mkv",
+        p1080: "https://store-eu-par-5.gofile.io/download/web/e193c81f-f268-4b55-a60c-3ae807ddbd9c/Dolly%20(2026)%201080p%20AMZN%20WEB-DL%20x264%20%5BHindi%20BMS%20AAC%202.0%20256kbps%20%2B%20English%20DDP%205.1%5D.mkv"
+    }
+};
+
+const LABEL_MAP = {
+    p480: "480p SD",
+    HEVCp720: "720p HEVC",
+    p720: "720p HD",
+    p1080: "1080p Full HD"
+};
+
+let trailerID = ""; 
+let player = null; 
+let checkInterval; 
+
+function startDownload(btn, url) {
+    let originalContent = btn.innerHTML;
+    let seconds = 3;
+    btn.style.pointerEvents = "none";
+    btn.style.opacity = "0.7";
+    const countdown = setInterval(() => {
+        btn.innerHTML = `Starting in ${seconds}s...`;
+        seconds--;
+        if (seconds < 0) {
+            clearInterval(countdown);
+            btn.innerHTML = originalContent;
+            btn.style.pointerEvents = "auto";
+            btn.style.opacity = "1";
+            window.open(url, "_blank");
+        }
+    }, 1000);
+}
+
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+function playTrailer() {
+    if(!trailerID) return;
+    document.getElementById("video-overlay").style.display = "none";
+    player = new YT.Player('player', {
+        height: '100%', width: '100%', videoId: trailerID,
+        playerVars: { 'autoplay': 1, 'controls': 1, 'modestbranding': 1, 'rel': 0, 'showinfo': 0 },
+        events: { 'onStateChange': onPlayerStateChange, 'onReady': onPlayerReady }
+    });
+}
+
+function changeVolume(val) {
+    if (player && player.setVolume) {
+        player.setVolume(val);
+        document.getElementById("vol-icon").innerText = val == 0 ? "🔇" : "🔊";
+    }
+}
+
+function toggleMute() {
+    if (!player) return;
+    if (player.isMuted()) {
+        player.unMute();
+        document.getElementById("vol-icon").innerText = "🔊";
+        document.getElementById("volume-slider").value = 100;
+        player.setVolume(100);
+    } else {
+        player.mute();
+        document.getElementById("vol-icon").innerText = "🔇";
+        document.getElementById("volume-slider").value = 0;
+    }
+}
+
+function onPlayerReady(event) {
+    checkInterval = setInterval(() => {
+        if (player && player.getDuration) {
+            let curr = player.getCurrentTime();
+            let dur = player.getDuration();
+            if (dur > 0 && (dur - curr < 1)) closePlayer();
+        }
+    }, 500);
+}
+
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.ENDED) closePlayer();
+}
+
+function closePlayer() {
+    clearInterval(checkInterval);
+    if(player) { player.destroy(); player = null; }
+    document.getElementById("video-overlay").style.display = "flex";
+}
+
+function runtime(m) { return !m ? "N/A" : Math.floor(m/60) + "h " + (m%60) + "m"; }
+
+async function load() {
+    try {
+        let search = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(MOVIE)}&primary_release_year=${YEAR}`);
+        let data = await search.json();
+        if(!data.results.length) { 
+            document.getElementById("loading").innerHTML = "Movie Not Found ❌"; 
+            return; 
+        }
+        let res = await fetch(`https://api.themoviedb.org/3/movie/${data.results[0].id}?api_key=${API_KEY}&append_to_response=images,videos`);
+        let m = await res.json();
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("content-box").style.display = "flex";
+        document.getElementById("dl-section").style.display = "block";
+        document.getElementById("title").innerText = m.title + " (" + m.release_date.slice(0,4) + ")";
+        document.getElementById("rel-date").innerText = m.release_date;
+        document.getElementById("poster").src = "https://image.tmdb.org/t/p/w500" + m.poster_path;
+        document.getElementById("rating").innerText = m.vote_average.toFixed(1) + "/10";
+        document.getElementById("genre").innerText = m.genres.map(g => g.name).join(", ");
+        document.getElementById("plot").innerText = m.overview;
+        document.getElementById("duration").innerText = runtime(m.runtime);
+        document.getElementById("lang").innerText = FILE.lang;
+        document.getElementById("quality").innerText = FILE.quality;
+
+        const db = document.getElementById("download-buttons");
+        db.innerHTML = "";
+        Object.keys(FILE.links).forEach(q => {
+            let label = LABEL_MAP[q] || q;
+            db.innerHTML += `<a href="javascript:void(0)" onclick="startDownload(this, '${FILE.links[q]}')" class="download-btn">${label}<br><span class='size-text'>${FILE.sizes[q]}</span></a>`;
+        });
+
+        if(m.videos && m.videos.results.length > 0) {
+            let trailer = m.videos.results.find(v => v.type === 'Trailer' && v.site === 'YouTube') || m.videos.results[0];
+            if(trailer) {
+                trailerID = trailer.key;
+                document.getElementById("trailer-section").style.display = "block";
+                if(m.backdrop_path) document.getElementById("video-overlay").style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280${m.backdrop_path}')`;
+            }
+        }
+
+        if(m.images && m.images.backdrops.length > 0) {
+            document.getElementById("ss-section").style.display = "block";
+            const ssContainer = document.getElementById("screens");
+            ssContainer.innerHTML = "";
+            m.images.backdrops.slice(0, 4).forEach(img => {
+                let i = document.createElement("img");
+                i.src = "https://image.tmdb.org/t/p/w500" + img.file_path;
+                ssContainer.appendChild(i);
+            });
+        }
+    } catch(e) { console.error(e); }
+}
+load();
+</script>
+
+</body>
+</html>
