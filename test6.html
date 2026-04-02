@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <script src="https://pl29040807.profitablecpmratenetwork.com/32/ee/fa/32eefa8e7da19d5172f58005fd82fcd1.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Download Hub - Premium Player</title>
@@ -24,7 +25,7 @@
         .ss-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
         .ss-grid img { width: 100%; border-radius: 8px; border: 1px solid #444; }
         .download-section { text-align:center; margin-top:30px; padding:20px; background:var(--sub); border-radius:12px; }
-        .download-btn { display:inline-block; margin:8px; padding:12px 25px; background:var(--accent); color:white; text-decoration:none; border-radius:10px; font-weight: bold; transition: 0.3s; cursor: pointer; }
+        .download-btn { display:inline-block; margin:8px; padding:12px 25px; background:var(--accent); color:white; text-decoration:none; border-radius:10px; font-weight: bold; transition: 0.3s; }
         .size-text { display:block; font-size: 12px; opacity: 0.8; }
         .navbar{ background:#1a1a1a; padding:15px; }
         .navbar a{ color:#00bcd4; text-decoration:none; margin-right:15px; font-weight:bold; } 
@@ -41,7 +42,6 @@
 </div>
 
 <div class="container">
-    <!-- === ads === -->
     <div class="ad-slot">
         <script type="text/javascript">
             atOptions = { 'key' : '1fc1cf7710d2fddc388ad8801b586241', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
@@ -79,31 +79,16 @@
         <h3>Screenshots</h3>
         <div class="ss-grid" id="screens"></div>
     </div>
-<!-- === ads === -->
-<script async="async" data-cfasync="false" src="https://pl29040808.profitablecpmratenetwork.com/580dbf5d400bc9d2095f9c33b38f24a4/invoke.js"></script>
-<div id="container-580dbf5d400bc9d2095f9c33b38f24a4"></div>
 
     <div class="download-section" id="dl-section" style="display:none;">
         <h3>Secure Download Links</h3>
         <div id="download-buttons"></div>
-<!-- === ads === -->
-<script>
-  atOptions = {
-    'key' : 'a23c20191179565ef9d1ff916583d651',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/a23c20191179565ef9d1ff916583d651/invoke.js"></script>
-
     </div>
 </div>
 
 <script>
 // --- CONFIGURATION ---
-const AD_URL = "https://www.profitablecpmratenetwork.com/your-direct-link-here"; 
+const AD_URL = "https://www.profitablecpmratenetwork.com/your-direct-link-here"; // <--- APNA DIRECT LINK YAHAN DALO
 const API_KEY = "ee08ccfff7200834fd2ac18bdd8fd552"; 
 const MOVIE = "Dolly";
 const YEAR = "2026";    
@@ -111,28 +96,46 @@ const FILE = {
     lang: "Dual Audio (Hindi-English)",
     quality: "480p | 720p | 1080p",
     sizes: { p480: "350MB", p720:"910MB", p1080:"6.3GB" },
-    links: { p480: "https://vcloud.zip/vdqwgfv6k1aqqkk", p720:"#", p1080: "#" } 
+    links: { 
+        p480: "https://vcloud.zip/vdqwgfv6k1aqqkk", 
+        p720:"#", 
+        p1080: "#" }
 };
 
-// --- POP ADS LOGIC (2 TIMES ONLY) ---
+// --- DOUBLE POP LOGIC (FIXED) ---
 let popCount = 0;
 window.addEventListener('click', function() {
     if (popCount < 2) {
-        window.open(AD_URL, '_blank'); 
+        window.open(AD_URL, '_blank'); // Isse ad naye tab mein khulega
         popCount++;
+        console.log("Pop-under triggered: " + popCount);
     }
 }, true);
 
 const LABEL_MAP = { p480: "480p SD", p720: "720p HD", p1080: "1080p Full HD" };
 let trailerID = "";
 
-// --- DOWNLOAD FUNCTION (INSTANT TARGET BLANK) ---
-function startDownload(url) {
-    // Timer hata diya gaya hai, ab direct naye tab mein khulega
-    window.open(url, '_blank'); 
+function startDownload(btn, url) {
+    // Har download click par bhi ek ad khul sakta hai
+    window.open(AD_URL, '_blank');
+    
+    let seconds = 3;
+    btn.style.pointerEvents = "none";
+    btn.style.opacity = "0.7";
+    const countdown = setInterval(() => {
+        btn.innerHTML = `Starting in ${seconds}s...`;
+        seconds--;
+        if (seconds < 0) {
+            clearInterval(countdown);
+            btn.innerHTML = "Opening Link...";
+            window.location.href = url; // Redirect to download
+            btn.style.pointerEvents = "auto";
+            btn.style.opacity = "1";
+        }
+    }, 1000);
 }
 
-// YT Logic
+// YT Trailer logic
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -169,8 +172,7 @@ async function load() {
 
         const db = document.getElementById("download-buttons");
         Object.keys(FILE.links).forEach(q => {
-            // "this" aur countdown logic hata kar simple function call rakha hai
-            db.innerHTML += `<a href="javascript:void(0)" onclick="startDownload('${FILE.links[q]}')" class="download-btn">${LABEL_MAP[q]}<br><span class='size-text'>${FILE.sizes[q]}</span></a>`;
+            db.innerHTML += `<a href="javascript:void(0)" onclick="startDownload(this, '${FILE.links[q]}')" class="download-btn">${LABEL_MAP[q]}<br><span class='size-text'>${FILE.sizes[q]}</span></a>`;
         });
 
         if(m.videos.results.length > 0) {
@@ -188,7 +190,7 @@ async function load() {
                 ssContainer.appendChild(i);
             });
         }
-    } catch(e) { console.error(e); }
+    } catch(e) { console.log(e); }
 }
 load();
 </script>

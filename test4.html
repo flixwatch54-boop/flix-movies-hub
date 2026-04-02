@@ -41,7 +41,6 @@
 </div>
 
 <div class="container">
-    <!-- === ads === -->
     <div class="ad-slot">
         <script type="text/javascript">
             atOptions = { 'key' : '1fc1cf7710d2fddc388ad8801b586241', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
@@ -79,31 +78,16 @@
         <h3>Screenshots</h3>
         <div class="ss-grid" id="screens"></div>
     </div>
-<!-- === ads === -->
-<script async="async" data-cfasync="false" src="https://pl29040808.profitablecpmratenetwork.com/580dbf5d400bc9d2095f9c33b38f24a4/invoke.js"></script>
-<div id="container-580dbf5d400bc9d2095f9c33b38f24a4"></div>
 
     <div class="download-section" id="dl-section" style="display:none;">
         <h3>Secure Download Links</h3>
         <div id="download-buttons"></div>
-<!-- === ads === -->
-<script>
-  atOptions = {
-    'key' : 'a23c20191179565ef9d1ff916583d651',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/a23c20191179565ef9d1ff916583d651/invoke.js"></script>
-
     </div>
 </div>
 
 <script>
 // --- CONFIGURATION ---
-const AD_URL = "https://www.profitablecpmratenetwork.com/your-direct-link-here"; 
+const AD_URL = "https://www.profitablecpmratenetwork.com/your-direct-link-here"; // <--- APNA AD LINK YAHAN DALO
 const API_KEY = "ee08ccfff7200834fd2ac18bdd8fd552"; 
 const MOVIE = "Dolly";
 const YEAR = "2026";    
@@ -114,7 +98,7 @@ const FILE = {
     links: { p480: "https://vcloud.zip/vdqwgfv6k1aqqkk", p720:"#", p1080: "#" } 
 };
 
-// --- POP ADS LOGIC (2 TIMES ONLY) ---
+// --- 1. POP ADS LOGIC (ONLY 2 TIMES) ---
 let popCount = 0;
 window.addEventListener('click', function() {
     if (popCount < 2) {
@@ -126,13 +110,31 @@ window.addEventListener('click', function() {
 const LABEL_MAP = { p480: "480p SD", p720: "720p HD", p1080: "1080p Full HD" };
 let trailerID = "";
 
-// --- DOWNLOAD FUNCTION (INSTANT TARGET BLANK) ---
-function startDownload(url) {
-    // Timer hata diya gaya hai, ab direct naye tab mein khulega
-    window.open(url, '_blank'); 
+// --- 2. DOWNLOAD FUNCTION (WITH TARGET BLANK) ---
+function startDownload(btn, url) {
+    let seconds = 3;
+    btn.style.pointerEvents = "none";
+    btn.style.opacity = "0.6";
+
+    const countdown = setInterval(() => {
+        btn.innerHTML = `Wait ${seconds}s...`;
+        seconds--;
+
+        if (seconds < 0) {
+            clearInterval(countdown);
+            btn.innerHTML = "Opening Link...";
+            
+            // Strictly target blank logic here
+            window.open(url, '_blank'); 
+            
+            btn.style.pointerEvents = "auto";
+            btn.style.opacity = "1";
+            btn.innerHTML = "Download Ready";
+        }
+    }, 1000);
 }
 
-// YT Logic
+// YouTube Logic
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -169,8 +171,7 @@ async function load() {
 
         const db = document.getElementById("download-buttons");
         Object.keys(FILE.links).forEach(q => {
-            // "this" aur countdown logic hata kar simple function call rakha hai
-            db.innerHTML += `<a href="javascript:void(0)" onclick="startDownload('${FILE.links[q]}')" class="download-btn">${LABEL_MAP[q]}<br><span class='size-text'>${FILE.sizes[q]}</span></a>`;
+            db.innerHTML += `<a href="javascript:void(0)" onclick="startDownload(this, '${FILE.links[q]}')" class="download-btn">${LABEL_MAP[q]}<br><span class='size-text'>${FILE.sizes[q]}</span></a>`;
         });
 
         if(m.videos.results.length > 0) {
