@@ -1,197 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Young Sherlock (2026) - Series Download</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series Hub - Premium UI</title>
+    
+    <script type='text/javascript' src='//pl25832739.highperformanceformat.com/83/87/81/8387817454261882f059a44415867375.js'></script>
+    
+    <style>
+        :root { --accent:#00bcd4; --bg:#0f0f0f; --card:#1e1e1e; --sub:#2a2a2a; --text:#e0e0e0; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { margin:0; font-family:'Segoe UI', Roboto, sans-serif; background:var(--bg); color:var(--text); line-height: 1.6; overflow-x: hidden; padding-bottom: 60px; }
+        .navbar { background:#1a1a1a; padding:15px; text-align:center; border-bottom: 2px solid var(--accent); position: sticky; top: 0; z-index: 1000; }
+        .navbar a { color:var(--accent); text-decoration:none; margin:0 10px; font-weight:bold; font-size: 14px; }
+        .container { max-width:1100px; margin:15px auto; padding:15px; background:var(--card); border-radius:15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .ad-slot { margin: 20px auto; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(255,255,255,0.02); border: 1px dashed #333; padding: 10px; border-radius: 8px; min-height: 60px; }
+        .ad-label { font-size: 10px; color: #555; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; }
+        .sticky-footer-ad { position: fixed; bottom: 0; left: 0; width: 100%; background: #1a1a1a; z-index: 2000; text-align: center; border-top: 1px solid var(--accent); padding: 5px 0; }
+        .movie-box { display:flex; flex-wrap:wrap; gap:20px; justify-content: center; }
+        .poster-container { width: 280px; flex-shrink: 0; }
+        .poster { width:100%; aspect-ratio:2/3; border-radius:12px; object-fit:cover; border: 1px solid #333; }
+        .details { flex:1; min-width: 300px; background:var(--sub); padding:20px; border-radius:12px; border: 1px solid #333; }
+        .details p { margin: 10px 0; font-size: 14.5px; border-bottom: 1px solid #383838; padding-bottom: 6px; }
+        .details p strong { color: var(--accent); display: inline-block; width: 140px; }
+        h1 { color:var(--accent); margin: 0 0 15px 0; font-size: clamp(22px, 5vw, 30px); }
 
-<style>
+        /* Trailer & Volume Styles */
+        .trailer-section { width: 100%; max-width: 850px; margin: 30px auto; display: none; }
+        .player-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; background: #000; border-radius: 15px; overflow: hidden; border: 2px solid #333; }
+        #player { position: absolute; top: -65px; left: -2px; width: calc(100% + 4px); height: calc(100% + 130px); z-index: 1; }
+        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; z-index: 10; cursor: pointer; }
+        .video-overlay::before { content: ""; position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+        .play-btn { width: 75px; height: 75px; background: var(--accent); border-radius: 50%; border: 4px solid white; position: relative; z-index: 11; transition: 0.3s; }
+        .volume-panel { margin-top: 10px; display: flex !important; align-items: center; gap: 12px; background: var(--sub); padding: 8px 15px; border-radius: 8px; width: fit-content; border-left: 3px solid var(--accent); }
+        .vol-icon { font-size: 18px; cursor: pointer; color: var(--accent); }
+        #volume-slider { cursor: pointer; width: 100px; height: 4px; accent-color: var(--accent); }
 
-body{
-margin:0;
-font-family:Arial;
-background:#0f0f0f;
-color:white;
-}
-
-.navbar{
-background:#1a1a1a;
-padding:15px;
-text-align:center;
-}
-
-.navbar a{
-color:#00bcd4;
-text-decoration:none;
-margin:0 10px;
-font-weight:bold;
-}
-
-/* ADS */
-
-.top-ad,.middle-ad{
-text-align:center;
-margin:15px 0;
-}
-
-.sticky-ad{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-background:#000;
-text-align:center;
-z-index:9999;
-padding:5px;
-}
-
-/* MAIN */
-
-.container{
-max-width:1000px;
-margin:30px auto;
-background:#1e1e1e;
-padding:20px;
-border-radius:12px;
-}
-
-.movie-box{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-}
-
-.poster{
-width:250px;
-border-radius:10px;
-}
-
-.details{
-flex:1;
-background:#2a2a2a;
-padding:15px;
-border-radius:10px;
-}
-
-.details h1{
-color:#00bcd4;
-}
-
-/* SCREENSHOTS */
-
-.screenshots img{
-width:300px;
-margin:10px 10px 0 0;
-border-radius:8px;
-}
-
-/* SELECTORS */
-
-.season-selector,
-.quality-selector{
-text-align:center;
-margin:20px 0;
-}
-
-.season-btn,
-.quality-btn{
-display:inline-block;
-padding:10px 18px;
-margin:5px;
-background:#2a2a2a;
-border-radius:8px;
-cursor:pointer;
-font-weight:bold;
-}
-
-.season-btn.active,
-.quality-btn.active,
-.season-btn:hover,
-.quality-btn:hover{
-background:#00bcd4;
-}
-
-/* EPISODES */
-
-.episode-list{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-top:20px;
-}
-
-.episode-card{
-width:150px;
-background:#2a2a2a;
-padding:8px;
-border-radius:8px;
-text-align:center;
-font-size:13px;
-}
-
-.size{
-font-size:12px;
-color:#aaa;
-margin-bottom:5px;
-}
-
-.download-btn{
-display:inline-block;
-margin-top:5px;
-padding:6px 12px;
-background:#00bcd4;
-color:white;
-font-weight:bold;
-text-decoration:none;
-border-radius:6px;
-font-size:12px;
-}
-
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:20px;
-background:#1a1a1a;
-margin-top:40px;
-color:#aaa;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.container{
-margin:10px;
-padding:15px;
-}
-
-.movie-box{
-flex-direction:column;
-align-items:center;
-}
-
-.poster{
-width:180px;
-}
-
-.screenshots img{
-width:100%;
-}
-
-.episode-card{
-width:48%;
-}
-
-}
-
-</style>
+        .selector-box { text-align: center; padding: 25px; background: var(--sub); border-radius: 12px; margin: 20px 0; border: 1px solid #333; }
+        .episode-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }
+        .episode-card { background: var(--sub); padding: 15px; border-radius: 12px; text-align: center; border: 1px solid #333; }
+        .ep-size { display: block; font-size: 12px; color: var(--accent); margin-bottom: 8px; font-weight: bold; }
+        .download-btn { display:inline-block; padding:12px; background:var(--accent); color:#000; text-decoration:none; border-radius:8px; font-weight: bold; font-size: 14px; cursor: pointer; border:none; width: 100%; transition: 0.3s; margin-top: 5px; }
+        .ss-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 15px; }
+        .ss-grid img { width: 100%; border-radius: 8px; border: 1px solid #444; }
+        @media (max-width: 768px) { .poster-container { width: 100%; max-width: 280px; margin: 0 auto; } .ss-grid { grid-template-columns: repeat(2, 1fr); } .hide-mobile { display: none; } }
+    </style>
 </head>
-
 <body>
 
-<!-- Navigation Bar -->
+<script src="https://pl29043215.profitablecpmratenetwork.com/0e/2e/96/0e2e96c3fac1781c273b033baf06ef7a.js"></script>
+
 <div class="navbar">
   <a href="index.html">🏠 Home</a> |
   <a href="about.html">ℹ️ About</a> |
@@ -199,220 +57,342 @@ width:48%;
   <a href="disclaimer.html">⚠️ Disclaimer</a>
 </div>
 
-<!-- TOP AD -->
-
-<div class="top-ad">
-YOUR_AD_CODE
-</div>
-
 <div class="container">
+    <p id="loading" style="text-align:center; color:var(--accent); padding:20px;">Fetching Series Data...</p>
 
-<div class="movie-box">
- 
-    <!-- Poster Image -->
-<img class="poster" src="https://image.tmdb.org/t/p/original/bb3XIgEUKSboZzDVYbfAi1w381A.jpg">
+    <div class="movie-box" id="content-box" style="display:none;">
+        <div class="poster-container"><img class="poster" id="poster"></div>
+        <div class="details">
+            <h1 id="title"></h1>
+            <p><strong>⭐ Rating:</strong> <span id="rating"></span></p>
+            <p><strong>🎭 Genre:</strong> <span id="genre"></span></p>
+            <p><strong>📅 Released:</strong> <span id="release-year"></span></p> 
+            <p><strong>🌐 Language:</strong> <span>Hindi + English</span></p>
+            <p><strong>⏰ Duration:</strong> <span id="duration"></span></p>
+            <p><strong>📖 Story:</strong><br><span id="plot" style="color:#ccc; font-size: 13.5px;"></span></p>
+        </div>
+    </div>
 
-<div class="details">
+    <div class="ad-slot">
+        <div class="ad-label">Advertisement</div>
+        <script type="text/javascript">
+            atOptions = { 'key' : '1fc1cf7710d2fddc388ad8801b586241', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="https://www.highperformanceformat.com/1fc1cf7710d2fddc388ad8801b586241/invoke.js"></script>
+    </div>
 
-<h1>Young Sherlock (2026)</h1>
-<!-- IMDb Rating -->
-<div id="imdb-rating" style="margin-top:10px; font-weight:bold; color:#ffd700;">IMDb rating: 7.6/10</div>
-<p><b>Genre:</b> Action/Adventure/Mystery/Spy</p>
-<p><b>Language:</b> Multi Audio [Hindi ORG. + English + Tamil + Telugu + Malayalam + Kannada] </p>
-<p><b>Total Seasons:</b> 1 </p>
-<p><b>Eposide :</b> 8 </p>
-<p><b>Subtitle:</b> Yes / English</p>
-<p><b>Format:</b>MKV</p>
-<p><b>Quality:</b>480p || 720p || 1080p -WEb-DL</p>
-<p><b>Complete Zip:</b>1.8GB|| 4.8GB|| 6.6GB - Zip Pack</p>
-<p><b>Eposide Size:</b>220MB|| 500MB|| 900Mb - Each Eposide</p>
-<p>Storyline:<strong>A disgraced, young Sherlock Holmes finds himself wrapped up in a murder case that threatens his liberty. His first ever case unravels a globe-trotting conspiracy, culminating in an explosive showdown that changes his life forever.</strong></p>
+    <div class="trailer-section" id="trailer-section">
+        <h3 style="color:var(--accent)">Official Trailer</h3>
+        <div class="player-wrapper">
+            <div class="video-overlay" id="video-overlay" onclick="playTrailer()">
+                <div class="play-btn"></div>
+            </div>
+            <div id="player"></div> 
+        </div>
+        <div class="volume-panel" id="vol-panel">
+            <span class="vol-icon" onclick="toggleMute()" id="vol-icon">🔊</span>
+            <input type="range" id="volume-slider" min="0" max="100" value="100" oninput="changeVolume(this.value)">
+        </div>
+    </div>
 
+    <div class="ad-slot">
+        <div class="ad-label">Sponsored</div>
+        <script async="async" data-cfasync="false" src="https://pl29040808.profitablecpmratenetwork.com/580dbf5d400bc9d2095f9c33b38f24a4/invoke.js"></script>
+        <div id="container-580dbf5d400bc9d2095f9c33b38f24a4"></div>
+    </div>
+
+    <div class="selector-box" id="selection-area" style="display:none;">
+        <h3>Select Season</h3>
+        <div id="season-buttons"></div>
+        <h3 style="margin-top: 20px;">Select Quality</h3>
+        <div id="quality-buttons"></div>
+    </div>
+
+    <div id="episodes-section" style="display:none;">
+        <h3>Episode Downloads</h3>
+        <div class="episode-list" id="episode-grid"></div>
+    </div>
+
+    <div class="ad-slot">
+         <div class="ad-label">ADVERTISEMENT</div>
+         <script type="text/javascript">
+            atOptions = { 'key' : 'a23c20191179565ef9d1ff916583d651', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="https://www.highperformanceformat.com/a23c20191179565ef9d1ff916583d651/invoke.js"></script>
+    </div>
+
+    <div id="pack-section" style="display:none; text-align: center; margin-top: 25px; padding: 20px; border: 2px dashed var(--accent); border-radius: 12px; background: rgba(0, 188, 212, 0.05);">
+        <h3 id="pack-title">Full Season Pack</h3>
+        <div id="pack-buttons"></div>
+    </div>
+
+    <div class="screenshots" id="ss-section" style="display:none; margin-top: 30px;">
+        <h3 style="color:var(--accent)">Screenshots</h3>
+        <div class="ss-grid" id="screens"></div>
+    </div>
 </div>
-</div>
 
-<div class="screenshots">
-
-<h2>Screenshots</h2>
-
-<img src="https://m.media-amazon.com/images/M/MV5BMDBhMTg2Y2MtZDQwOS00NWMyLWJjNzgtMWM3NGY4MjNmODhlXkEyXkFqcGc@._V1_QL75_UX492_.jpg">
-<img src="https://m.media-amazon.com/images/M/MV5BOWMzZmFiZjAtMmE4YS00NzBlLTgwMDUtNGY1Y2VjMDFjMzM3XkEyXkFqcGc@._V1_QL75_UX492_.jpg">
-<img src="https://m.media-amazon.com/images/M/MV5BMGM5MzY1M2ItY2MxNy00ODdhLWJkYzEtNjg0ZTM4ZjdhYmQ2XkEyXkFqcGc@._V1_QL75_UX492_.jpg">
-
-</div>
-
-<div class="season-selector" id="seasonSelector"></div>
-<div class="quality-selector" id="qualitySelector"></div>
-
-<div style="text-align:center;margin-top:10px;" id="seasonDownload"></div>
-
-<!-- MIDDLE AD -->
-
-<div class="middle-ad">
-YOUR_AD_CODE
-</div>
-
-<div class="episode-list" id="episodeList"></div>
-
-</div>
-
-<footer>
-© 2026 FlixWatch Hub
-</footer>
-
-<!-- STICKY MOBILE AD -->
-
-<div class="sticky-ad">
-YOUR_AD_CODE
+<div class="sticky-footer-ad">
+    <script type="text/javascript">
+        atOptions = { 'key' : '1fc1cf7710d2fddc388ad8801b586241', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+    </script>
+    <script type="text/javascript" src="https://www.highperformanceformat.com/1fc1cf7710d2fddc388ad8801b586241/invoke.js"></script>
 </div>
 
 <script>
+// --- CONFIGURATION ---
+const AD_URL = "https://www.highperformanceformat.com/your-direct-link-here"; 
+const API_KEY = "ee08ccfff7200834fd2ac18bdd8fd552"; 
+const SERIES_NAME = "Game of Thrones"; 
+const SERIES_YEAR = "2011"; 
 
-const seasons = [
-{
-name:"Season 1",
+const EPISODE_LINKS = {
+    "S1": { 
+        "480p": { 
+          pack: "https://hubcloud.foo/drive/d8dqyiyc2qd1sm6", 
+          packSize: "2.42 GB", 
+          epSize: "300 MB", 
+          episodes: [
+            "https://send.now/gqrgv7v6adsg", 
+            "https://hubcloud.foo/video/6wnbfkynij1zbs3",
+            "https://hubcloud.foo/video/6wnbfkynij1zbs3",
+            "https://hubcloud.foo/video/txot4fztgz51xja",
+            "https://hubcloud.foo/video/vx2yt_ts5tpfpwf",
+            "https://hubcloud.foo/video/jrnrparc20lfynf",
+            "https://fastcdn-dl.pages.dev/?url=example-link",
+            "https://hubcloud.foo/video/wxvc8ka9z84a8ui",
+            "https://hubcloud.foo/video/pi1ixfrokiaxai3",
+            "https://hubcloud.foo/video/eqcyahj1orgysye"
+          ] 
+        },
+        "720p": { 
+          pack: "https://hubcloud.foo/drive/t4chopjhjkkvzwy", 
+          packSize: "4.56 GB", 
+          epSize: "500 MB", 
+          episodes: [
+            "https://hubcloud.foo/video/affk6fuc__f6crr", 
+            "https://hubcloud.foo/video/csbl1bccsa_cbtk",
+            "https://hubcloud.foo/video/mnn9xevo5j_1tp9",
+            "https://hubcloud.foo/video/zh_44fr9h9a9bv_",
+            "https://hubcloud.foo/video/matzxfpftkrb2al",
+            "https://hubcloud.foo/video/wwfxrynxhvsolgd",
+            "https://hubcloud.foo/video/3lm30arh3rxrdmj",
+            "https://hubcloud.foo/video/xbe53g3dbp137g1",
+            "https://hubcloud.foo/video/cacwijacnu_inqm",
+            "https://hubcloud.foo/video/f_4o22jzouv5kbr"
+          ] 
+        }
+    },
+    "S2": {
+        "480p": { 
+          pack: "", 
+          packSize: "2.42 GB", 
+          epSize: "300 MB", 
+          episodes: [
+            "https://send.now/gqrgv7v6adsg", 
+            "https://hubcloud.foo/video/6wnbfkynij1zbs3",
+            "https://hubcloud.foo/video/6wnbfkynij1zbs3",
+            "https://hubcloud.foo/video/txot4fztgz51xja",
+            "https://hubcloud.foo/video/vx2yt_ts5tpfpwf",
+            "https://hubcloud.foo/video/jrnrparc20lfynf",
+            "https://fastcdn-dl.pages.dev/?url=example-link",
+            "https://hubcloud.foo/video/wxvc8ka9z84a8ui",
+            "https://hubcloud.foo/video/pi1ixfrokiaxai3",
+            "https://hubcloud.foo/video/eqcyahj1orgysye"
+          ] 
+        },
+        "720p": { 
+          pack: "https://hubcloud.foo/drive/t4chopjhjkkvzwy", 
+          packSize: "4.56 GB", 
+          epSize: "500 MB", 
+          episodes: [
+            "https://hubcloud.foo/video/affk6fuc__f6crr", 
+            "https://hubcloud.foo/video/csbl1bccsa_cbtk",
+            "https://hubcloud.foo/video/mnn9xevo5j_1tp9",
+            "https://hubcloud.foo/video/zh_44fr9h9a9bv_",
+            "https://hubcloud.foo/video/matzxfpftkrb2al",
+            "https://hubcloud.foo/video/wwfxrynxhvsolgd",
+            "https://hubcloud.foo/video/3lm30arh3rxrdmj",
+            "https://hubcloud.foo/video/xbe53g3dbp137g1",
+            "https://hubcloud.foo/video/cacwijacnu_inqm",
+            "https://hubcloud.foo/video/f_4o22jzouv5kbr"
+          ] 
+        }
+    }
+};
 
-fullPack:{
-"480p":{size:"1.8GB",link:"https://hubcloud.foo/drive/y6m6rt6qtyrterf"},
-"720p":{size:"4.8GB",link:"https://hubcloud.foo/drive/eugz1qgmvxyur0h"},
-"1080p":{size:"6.6GB",link:"https://hubcloud.foo/drive/iejhv0hi7tihzjy"},
-},
+let seriesID = "", currentS = null, currentQ = "", trailerID = "", player = null;
+let buttonClicks = {};
+let totalClicks = 0;
 
-episodes:{
+window.addEventListener('click', function() {
+    totalClicks++;
+    if (totalClicks % 5 === 0) { window.open(AD_URL, '_blank'); }
+    if (totalClicks <= 2) { window.open(AD_URL, '_blank'); }
+}, true);
 
-"720p":[
-{title:"Episode 1",link:"https://hubcloud.foo/drive/bvcf6ac7cmd0jmb"},
-{title:"Episode 2",link:"https://hubcloud.foo/drive/ooqoxrtxgdo1qh7"},
-{title:"Episode 3",link:"https://hubcloud.foo/drive/8vjahvfaa2hk1zn"},
-{title:"Episode 4",link:"https://hubcloud.foo/drive/3of5snnmoqdsmmg"},
-{title:"Episode 5",link:"https://hubcloud.foo/drive/ssy8um2mkgohs6h"},
-{title:"Episode 6",link:"https://hubcloud.foo/drive/ssy8um2mkgohs6h"},
-{title:"Episode 7",link:"https://hubcloud.foo/drive/nuniugiifwuzz9z"},
-{title:"Episode 8",link:"https://hubcloud.foo/drive/nk8trv7icdnbogq"}
-],
-}
-},
-
-// == Add More Season ==
-
-];
-
-let currentSeason = 0;
-let currentQuality = "720p";
-
-function renderSeasons(){
-
-const box = document.getElementById("seasonSelector");
-box.innerHTML = "";
-
-seasons.forEach((s,i)=>{
-
-const btn = document.createElement("div");
-
-btn.className = "season-btn"+(i===currentSeason?" active":"");
-btn.innerText = s.name;
-
-btn.onclick = ()=>selectSeason(i);
-
-box.appendChild(btn);
-
-});
-
-}
-
-function renderQualities(){
-
-const box = document.getElementById("qualitySelector");
-box.innerHTML = "";
-
-["480p","720p","1080p"].forEach(q=>{
-
-const btn = document.createElement("div");
-
-btn.className = "quality-btn"+(q===currentQuality?" active":"");
-btn.innerText = q;
-
-btn.onclick = ()=>selectQuality(q);
-
-box.appendChild(btn);
-
-});
-
-}
-
-function renderEpisodes(){
-
-const list = document.getElementById("episodeList");
-list.innerHTML = "";
-
-const eps = seasons[currentSeason].episodes[currentQuality];
-
-eps.forEach(ep=>{
-
-const card = document.createElement("div");
-card.className = "episode-card";
-
-card.innerHTML = `
-<h3>${ep.title}</h3>
-
-<a href="${ep.link}" class="download-btn">Download</a>
-`;
-
-list.appendChild(card);
-
-});
-
-}
-
-function renderSeasonDownload(){
-
-const box=document.getElementById("seasonDownload");
-box.innerHTML="";
-
-const link=seasons[currentSeason].fullPack[currentQuality];
-
-if(link){
-
-const btn=document.createElement("a");
-
-btn.href=link.link;
-btn.className="download-btn";
-btn.innerText="Download Full Season ("+link.size+")";
-
-box.appendChild(btn);
-
+// VOLUME & PLAYER FUNCTIONS
+function changeVolume(val) {
+    if (player && player.setVolume) {
+        player.setVolume(val);
+        document.getElementById("vol-icon").innerText = val == 0 ? "🔇" : "🔊";
+    }
 }
 
+function toggleMute() {
+    if (player && player.isMuted()) {
+        player.unMute(); 
+        document.getElementById("vol-icon").innerText = "🔊"; 
+        document.getElementById("volume-slider").value = 100;
+    } else if (player) {
+        player.mute(); 
+        document.getElementById("vol-icon").innerText = "🔇"; 
+        document.getElementById("volume-slider").value = 0;
+    }
 }
 
-function selectSeason(i){
-
-currentSeason = i;
-currentQuality = "480p";
-
-renderSeasons();
-renderQualities();
-renderEpisodes();
-renderSeasonDownload();
-
+function playTrailer() {
+    window.open(AD_URL, '_blank');
+    if (!trailerID) return;
+    document.getElementById("video-overlay").style.display = "none";
+    player = new YT.Player('player', { 
+        videoId: trailerID, 
+        playerVars: { 'autoplay': 1, 'rel': 0, 'modestbranding': 1, 'controls': 1 },
+        events: { 'onReady': (e) => { e.target.setVolume(100); } }
+    });
 }
 
-function selectQuality(q){
-
-currentQuality = q;
-
-renderQualities();
-renderEpisodes();
-renderSeasonDownload();
-
+function resetTrailerUI() {
+    if (player) { player.destroy(); player = null; }
+    document.getElementById("player").innerHTML = "";
+    document.getElementById("video-overlay").style.display = "flex";
 }
 
-renderSeasons();
-renderQualities();
-renderEpisodes();
-renderSeasonDownload();
+function changeSeason(n) {
+    window.open(AD_URL, '_blank');
+    currentS = n;
+    resetTrailerUI();
+    document.querySelectorAll('.season-btn').forEach(b => { b.style.background = "#444"; });
+    document.getElementById(`sbtn-${n}`).style.background = "var(--accent)";
+    
+    const qBox = document.getElementById("quality-buttons");
+    qBox.innerHTML = "";
+    const qualities = EPISODE_LINKS["S"+n];
+    for(let q in qualities) {
+        qBox.innerHTML += `<button class="download-btn q-btn" id="qbtn-${q}" style="width:auto; margin:5px; background:#444;" onclick="setQuality('${q}')">${q}</button>`;
+    }
+    setQuality(Object.keys(qualities)[0], true);
+    loadTrailer(n);
+}
 
+function setQuality(q, isInitial = false) {
+    if(!isInitial) window.open(AD_URL, '_blank');
+    currentQ = q;
+    document.querySelectorAll('.q-btn').forEach(b => { b.style.background = "#444"; });
+    if(document.getElementById(`qbtn-${q}`)) document.getElementById(`qbtn-${q}`).style.background = "var(--accent)";
+    
+    fetch(`https://api.themoviedb.org/3/tv/${seriesID}/season/${currentS}?api_key=${API_KEY}`)
+        .then(res => res.json()).then(data => renderEpisodes(data.episodes));
+}
+
+function startDownload(uniqueId, url) {
+    if (!buttonClicks[uniqueId]) {
+        buttonClicks[uniqueId] = true;
+        window.open(AD_URL, '_blank');
+        document.getElementById(uniqueId).innerHTML = "Verify & Download";
+        document.getElementById(uniqueId).style.background = "#ff9800";
+    } else {
+        window.open(url, '_blank');
+        buttonClicks[uniqueId] = false;
+        document.getElementById(uniqueId).innerHTML = "Download Now";
+        document.getElementById(uniqueId).style.background = "var(--accent)";
+    }
+}
+
+async function init() {
+    try {
+        const search = await fetch(`https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&query=${encodeURIComponent(SERIES_NAME)}&first_air_date_year=${SERIES_YEAR}`);
+        const data = await search.json();
+        if(!data.results.length) return;
+        
+        seriesID = data.results[0].id;
+        const main = await fetch(`https://api.themoviedb.org/3/tv/${seriesID}?api_key=${API_KEY}`);
+        const s = await main.json();
+        
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("content-box").style.display = "flex";
+        document.getElementById("title").innerText = s.name;
+        document.getElementById("poster").src = "https://image.tmdb.org/t/p/w500" + s.poster_path;
+        document.getElementById("rating").innerText = s.vote_average.toFixed(1) + "/10";
+        document.getElementById("genre").innerText = s.genres.map(g => g.name).join(", ");
+        document.getElementById("plot").innerText = s.overview;
+        document.getElementById("release-year").innerText = s.first_air_date.split('-')[0];
+        document.getElementById("duration").innerText = (s.episode_run_time[0] || "N/A") + " min";
+
+        const sBox = document.getElementById("season-buttons");
+        let firstS = null;
+        for(let i=1; i <= s.number_of_seasons; i++) {
+            if (EPISODE_LINKS["S"+i]) {
+                if(!firstS) firstS = i;
+                sBox.innerHTML += `<button class="download-btn season-btn" id="sbtn-${i}" style="width:auto; margin:5px; background:#444; color:#fff" onclick="changeSeason(${i})">Season ${i}</button>`;
+            }
+        }
+        if(firstS) { document.getElementById("selection-area").style.display = "block"; changeSeason(firstS); }
+        loadScreenshots();
+    } catch (e) { console.error(e); }
+}
+
+function renderEpisodes(tmdbEpisodes) {
+    const eGrid = document.getElementById("episode-grid");
+    eGrid.innerHTML = "";
+    const config = EPISODE_LINKS["S"+currentS][currentQ];
+    
+    tmdbEpisodes.forEach((ep, i) => {
+        let link = config.episodes[i] || "#";
+        let uniqueId = `ep-${currentS}-${currentQ}-${ep.episode_number}`;
+        eGrid.innerHTML += `
+            <div class="episode-card">
+                <span style="font-weight:bold">Episode ${ep.episode_number}</span>
+                <span class="ep-size">Size: ${config.epSize}</span>
+                <button id="${uniqueId}" class="download-btn" onclick="startDownload('${uniqueId}', '${link}')">Download</button>
+            </div>`;
+    });
+    document.getElementById("episodes-section").style.display = "block";
+    if(config.pack) {
+        document.getElementById("pack-section").style.display = "block";
+        document.getElementById("pack-buttons").innerHTML = `<button id="p-${currentS}" class="download-btn" onclick="startDownload('p-${currentS}', '${config.pack}')">Download Full Season (${config.packSize})</button>`;
+    }
+}
+
+async function loadTrailer(sNum) {
+    const res = await fetch(`https://api.themoviedb.org/3/tv/${seriesID}/season/${sNum}?api_key=${API_KEY}&append_to_response=videos`);
+    const data = await res.json();
+    let tr = data.videos.results.find(v => v.type === 'Trailer') || data.videos.results[0];
+    if(tr) {
+        trailerID = tr.key;
+        document.getElementById("trailer-section").style.display = "block";
+        document.getElementById("video-overlay").style.display = "flex";
+        document.getElementById("video-overlay").style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280${data.poster_path || ''}')`;
+    }
+}
+
+async function loadScreenshots() {
+    const res = await fetch(`https://api.themoviedb.org/3/tv/${seriesID}/images?api_key=${API_KEY}`);
+    const data = await res.json();
+    const screens = document.getElementById("screens");
+    screens.innerHTML = "";
+    if(data.backdrops.length > 0) {
+        document.getElementById("ss-section").style.display = "block";
+        data.backdrops.slice(0, 8).forEach(img => {
+            screens.innerHTML += `<img src="https://image.tmdb.org/t/p/w500${img.file_path}" alt="screenshot">`;
+        });
+    }
+}
+
+var tag = document.createElement('script'); tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0]; firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+init();
 </script>
-
 </body>
 </html>
