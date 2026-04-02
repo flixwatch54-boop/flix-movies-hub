@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://pl29040807.profitablecpmratenetwork.com/32/ee/fa/32eefa8e7da19d5172f58005fd82fcd1.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Download Hub - Premium Player</title>
+
+    <style>
+        :root { --accent:#00bcd4; --bg:#0f0f0f; --card:#1e1e1e; --sub:#2a2a2a; }
+        body { margin:0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background:var(--bg); color:white; line-height: 1.6; }
+        .container { max-width:900px; margin:20px auto; padding:20px; background:var(--card); border-radius:15px; box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
+        .ad-slot { margin: 20px 0; text-align: center; background: rgba(255,255,255,0.03); border: 1px dashed #444; min-height: 90px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #666; font-size: 12px; }
+        .movie-box { display:flex; flex-wrap:wrap; gap:20px; align-items: flex-start; }
+        .poster { width:280px; aspect-ratio:2/3; border-radius:12px; object-fit:cover; border: 1px solid #333; }
+        .details { flex:1; background:var(--sub); padding:20px; border-radius:12px; }
+        h1 { color:var(--accent); margin: 0 0 10px 0; }
+        .trailer-section { max-width: 800px; margin: 25px auto; display: none; }
+        .player-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; background: #000; border-radius: 12px; overflow: hidden; }
+        #player { position: absolute; top: -60px; left: 0; width: 100%; height: calc(100% + 120px); }
+        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; display: flex; align-items: center; justify-content: center; z-index: 10; cursor: pointer; }
+        .play-btn { width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 4px solid white; }
+        .ss-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .ss-grid img { width: 100%; border-radius: 8px; }
+        .download-section { text-align:center; margin-top:30px; padding:20px; background:var(--sub); border-radius:12px; }
+        .download-btn { display:inline-block; margin:8px; padding:12px 25px; background:var(--accent); color:white; text-decoration:none; border-radius:10px; font-weight: bold; cursor: pointer; }
+        .navbar{ background:#1a1a1a; padding:15px; }
+        .navbar a{ color:#00bcd4; text-decoration:none; margin-right:15px; font-weight:bold; }
+    </style>
+</head>
+<body onclick="triggerSecondPop()"> <div class="navbar">
+  <a href="#">🏠 Home</a> | <a href="#">ℹ️ About</a> | <a href="#">📩 Contact</a>
+</div>
+
+<div class="container">
+    <div class="ad-slot">
+        <script type="text/javascript">
+            atOptions = { 'key' : '1fc1cf7710d2fddc388ad8801b586241', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+        </script>
+        <script src="https://www.highperformanceformat.com/1fc1cf7710d2fddc388ad8801b586241/invoke.js"></script>
+    </div>
+
+    <p id="loading" style="text-align:center;">✨ Loading Movie Data...</p>
+
+    <div class="movie-box" id="content-box" style="display:none;">
+        <img class="poster" id="poster">
+        <div class="details">
+            <h1 id="title"></h1>
+            <p><strong>⭐ Rating:</strong> <span id="rating"></span></p>
+            <p id="plot"></p>
+        </div>
+    </div>
+
+    <div class="trailer-section" id="trailer-section">
+        <h3>Official Trailer</h3>
+        <div class="player-wrapper">
+            <div class="video-overlay" id="video-overlay" onclick="playTrailer()">
+                <div class="play-btn"></div>
+            </div>
+            <div id="player"></div>
+        </div>
+    </div>
+
+    <div class="download-section" id="dl-section" style="display:none;">
+        <h3>Download Links</h3>
+        <div id="download-buttons"></div>
+    </div>
+</div>
+
+<script>
+// --- POP-UNDER CONFIG ---
+let popCount = 0;
+// APNI DIRECT LINK YAHAN DALEIN (Adsterra/Monetag Direct Link)
+const DIRECT_LINK = "https://www.profitablecpmratenetwork.com/direct-link-code"; 
+
+function triggerSecondPop() {
+    // Ye function sirf pehle click par ad kholega (Pop-under 2)
+    if (popCount < 1) {
+        window.open(DIRECT_LINK, '_blank');
+        popCount++;
+    }
+}
+
+// --- MOVIE LOGIC ---
+const API_KEY = "ee08ccfff7200834fd2ac18bdd8fd552"; 
+const MOVIE = "Dolly";
+const YEAR = "2026";
+
+function startDownload(btn, url) {
+    // Teesri dafa ad kholne ke liye (Optional)
+    window.open(DIRECT_LINK, '_blank'); 
+
+    let original = btn.innerHTML;
+    let sec = 3;
+    btn.style.pointerEvents = "none";
+    const timer = setInterval(() => {
+        btn.innerHTML = `Wait ${sec}s...`;
+        if (sec <= 0) {
+            clearInterval(timer);
+            btn.innerHTML = original;
+            btn.style.pointerEvents = "auto";
+            window.location.href = url;
+        }
+        sec--;
+    }, 1000);
+}
+
+// API Loading...
+async function load() {
+    try {
+        let res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${MOVIE}`);
+        let data = await res.json();
+        let m = data.results[0];
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("content-box").style.display = "flex";
+        document.getElementById("dl-section").style.display = "block";
+        document.getElementById("title").innerText = m.title;
+        document.getElementById("poster").src = "https://image.tmdb.org/t/p/w500" + m.poster_path;
+        document.getElementById("rating").innerText = m.vote_average + "/10";
+        document.getElementById("plot").innerText = m.overview;
+        
+        const db = document.getElementById("download-buttons");
+        ["480p", "720p", "1080p"].forEach(q => {
+            db.innerHTML += `<div class="download-btn" onclick="startDownload(this, '#')">${q} Download</div>`;
+        });
+    } catch(e) {}
+}
+load();
+
+function playTrailer() {
+    document.getElementById("video-overlay").style.display = "none";
+    // Trailer Play Logic
+}
+</script>
+
+<script src="https://pl29040807.profitablecpmratenetwork.com/32/ee/fa/32eefa8e7da19d5172f58005fd82fcd1.js"></script>
+
+</body>
+</html>
