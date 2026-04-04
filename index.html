@@ -4,902 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlixNova - Home of Movies</title>
+    
+    <script src="https://pl29040807.profitablecpmratenetwork.com/32/ee/fa/32eefa8e7da19d5172f58005fd82fcd1.js"></script>
+
     <link rel="stylesheet" href="style.css">
+    <style>
+        .ad-slot {
+            text-align: center;
+            margin: 15px auto;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .ad-label { color: #555; font-size: 10px; margin-bottom: 5px; text-transform: uppercase; }
+        .in-grid-ad {
+            grid-column: span 1;
+            border: 1px dashed #333;
+            min-height: 280px;
+            justify-content: center;
+        }
+        @media (min-width: 768px) { .in-grid-ad { grid-column: span 2; } }
+        .ad-slot iframe { max-width: 100% !important; }
+    </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="main-header">
-  <div class="logo">🎬 FlixNova</div>
-<!-- Navigation Bar -->
-<div class="navbar">
-  <a href="index.html" target="_blank">🏠 Home</a> |
-  <a href="about.html" target="_blank">ℹ️ About</a> |
-  <a href="contact.html" target="_blank">📩 Contact</a> |
-  <a href="disclaimer.html" target="_blank">⚠️ Disclaimer</a>
-</div>
+    <div class="logo">🎬 FlixNova</div>
+    <div class="navbar">
+        <a href="index.html">🏠 Home</a> |
+        <a href="about.html">ℹ️ About</a> |
+        <a href="contact.html">📩 Contact</a> |
+        <a href="disclaimer.html">⚠️ Disclaimer</a>
+    </div>
 </header>
+
+<div class="ad-slot top-banner">
+    <span class="ad-label">Advertisement</span>
+    <script type="text/javascript">
+        atOptions = { 'key' : 'a23c20191179565ef9d1ff916583d651', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+    </script>
+    <script type="text/javascript" src="https://www.highperformanceformat.com/a23c20191179565ef9d1ff916583d651/invoke.js"></script>
+</div>
 
 <div class="section-title"><span>🔥</span> Trending Now</div>
 <div class="trending-container">
-    <button class="nav-btn prev-trend" onclick="scrollTrend(-300)">❮</button>
+    <button class="nav-btn prev-trend" onclick="scrollTrend(-300); triggerAd();">❮</button>
     <div class="trending-wrapper" id="trendingWrapper">
 
-        <!-- === 1 === -->
-<a href="hollywoodmovie45.html" target="_blank" class="trending-card">
-    <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/sTPUg3XtdcKRAS5Vwsi1GYPFhNZ.jpg" alt="Dolly (2026)">
-    <div class="trending-info">
-        <h4>Dolly [Hindi/English]</h4>
-        <div class="movie-meta">
-            <span class="icon">🎬</span>
-            <span class="separator">|</span>
-            <span class="year">2026</span>
-            <span class="separator">|</span>
-            <span class="genres">Horror</span>
-        </div>
+        <a href="hollywoodmovie45.html" class="trending-card" onclick="triggerAd()">
+            <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/sTPUg3XtdcKRAS5Vwsi1GYPFhNZ.jpg" alt="Dolly">
+            <div class="trending-info">
+                <h4>Dolly [Hindi/English]</h4>
+
+                
+                <div class="movie-meta"><span>🎬 2026</span></div>
+            </div>
+        </a> 
     </div>
-</a> 
-
-        <!-- === 2 === -->
-
-
-        <!-- === 3 === -->
-
-
-        <!-- === 4 === -->
-
-
-        <!-- === 5 === -->
-
-
-        <!-- === 6 === -->
-
-        <!-- === 7 === -->
-
-        <!-- === 8 === -->
-
-        <!-- === 9 === -->
-
-
-        <!-- === 10 === -->
-
-
-     <!-- Add More Movies & Series  -->
-    </div>
-    <button class="nav-btn next-trend" onclick="scrollTrend(300)">❯</button>
+    <button class="nav-btn next-trend" onclick="scrollTrend(300); triggerAd();">❯</button>
 </div>
 
-<!-- SEARCH -->
 <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Search Movies & Series ...">
+    <input type="text" id="searchInput" placeholder="Search Movies & Series ..." onclick="triggerAd()">
 </div>
 
-<!-- CATEGORY -->
 <div class="category-bar">
-  <button class="btn active" data-category="all">All</button>
-  <button class="btn" data-category="action">Action</button>
-  <button class="btn" data-category="drama">Drama</button>
-  <button class="btn" data-category="comedy">Comedy</button>
-  <button class="btn" data-category="anime">Anime</button>
-  <button class="btn" data-category="crime">Crime</button>
-  <button class="btn" data-category="sci-fi">Sci-Fi</button>
-  <button class="btn" data-category="series">Series</button>
-  <button class="btn" data-category="bollywood">Bollywood</button>
-  <button class="btn" data-category="hollywood">Hollywood</button>
-  <button class="btn" data-category="hindi">Hindi</button>
-  <button class="btn" data-category="English">English</button>
-
-
-
+    <button class="btn active" data-category="all" onclick="triggerAd()">All</button>
+    <button class="btn" data-category="action" onclick="triggerAd()">Action</button>
+    <button class="btn" data-category="bollywood" onclick="triggerAd()">Bollywood</button>
+    <button class="btn" data-category="hollywood" onclick="triggerAd()">Hollywood</button>
 </div>
 
 <p id="noResult">❌ No Movie Found</p>
 
 <div class="movies-grid-wrapper" id="movieGrid">
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- == Post 110 == -->
-<div class="movie-card" data-category="Crime and Thriller    /hollywood/english/hindi">
-    <a href="hollywoodmovie46.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/tVvpFIoteRHNnoZMhdnwIVwJpCA.jpg" 
-        alt=" Crime 101 (2026) Movie Poster" loading="lazy"></a>
-    <h3> Crime 101 (2026) Dual Audio (Hindi-English) 480p | 580MB | 720p HEVC | 1.2B | 720p | 1.5GB | 1080p | 3.2GB | 1080p | 10GB Web-Dl  </h3>
-</div>
-<!-- == Post 109 == -->
-<div class="movie-card" data-category="horror/hollywood/english/hindi">
-    <a href="hollywoodmovie45.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/sTPUg3XtdcKRAS5Vwsi1GYPFhNZ.jpg" 
-        alt=" Dolly (2026) Movie Poster" loading="lazy"></a>
-    <h3> Dolly (2026) Dual Audio (Hindi-English) 480p | 350MB | 720p HEVC | 650MB | 720p | 910MB | 1080p | 6.3GB  </h3>
-</div>
-<!-- == Post 108 == -->
-<div class="movie-card" data-category="Action, Action, Crime, and Thriller/bollywood/hindi">
-    <a href="bollywoodmovie61.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/ov8vrRLZGoXHpYjSY9Vpv1tHJX7.jpg" 
-        alt=" Dhurandhar: The Revenge (2026) (2012) Movie Poster" loading="lazy"></a>
-    <h3> Dhurandhar: The Revenge (2026)  Hindi 480p | 700MB | 720p HEVC | 1.3GB | 720P | 1.9GB | 1080p HEVC | 3GB | 1080p | 4.4GB Blue-Ray  </h3>
-</div> 
-<!-- == Post 107 == -->
-<div class="movie-card" data-category="Action,Action, Crime, and Thriller   /bollywood/hindi">
-    <a href="bollywoodmovie60.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/snBOuXDdhmTvlzMUvP9Em3Pp1u1.jpg" 
-        alt=" Dhurandhar (2025) Movie Poster" loading="lazy"></a>
-    <h3> Dhurandhar (2025) Hindi 480p | 740MB | 720p HEVC | 1.3GB | 720P | 2GB | 1080p HEVC | 2.9GB | 1080p | 4.4GB Blue-Ray  </h3>
-</div> 
-<!-- == Post 106 == -->
-<div class="movie-card" data-category="Action, Thriller, and Crime/bollywood/hindi">
-    <a href="bollywoodmovie59.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/4CVPyT10Cvw9BCgWNKXiRcXntuc.jpg" 
-        alt=" Gangs of Wasseypur - Part 2 (2012) Movie Poster" loading="lazy"></a>
-    <h3> JGangs of Wasseypur - Part 2 (2012) Hindi 480p | 400MB | 720p | 1.3GB | 1080p | 4.6GB | 1080p | 15GB Blue-Ray  </h3>
-</div>
-<!-- == Post 105 == -->
-<div class="movie-card" data-category="Action, Thriller, and Crime/bollywood/hindi">
-    <a href="bollywoodmovie58.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/xAy208Znkingmfnb5ZbULwLyIwW.jpg" 
-        alt=" Gangs of Wasseypur - Part 1 (2012) Movie Poster" loading="lazy"></a>
-    <h3> JGangs of Wasseypur - Part 1 (2012) Hindi 480p | 450MB | 720p | 1GB | 1080p | 4.6GB | - Blue-Ray  </h3>
-</div>
-<!-- == Post 104 == -->
-<div class="movie-card" data-category="Comedy/Sci-fi/bollywood/hindi">
-    <a href="bollywoodmovie57.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/gA3xoiTWuaqEAiBXUqTv0gfZRSA.jpg" 
-        alt=" Joker (2012) Movie Poster" loading="lazy"></a>
-    <h3> Joker (2012) Hindi 480p | 300MB | 720p | 800MB - HDRip  </h3>
-</div>
-<!-- == Post 103 == -->
-<div class="movie-card" data-category="Action, romance /bollywood/hindi">
-    <a href="bollywoodmovie56.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/2nQgcZb9hGzU2Dz8cYC5JoxkYBi.jpg" 
-        alt=" Jannat 2 (2012) Movie Poster" loading="lazy"></a>
-    <h3> Jannat 2 (2012) Hindi 480p | 400MB | 720p | 1.2GB | 1080p | 4GB </h3>
-</div>
-<!-- == Post 102 == -->
-<div class="movie-card" data-category="Drama, Action, Thriller, Crime, Romance/bollywood/hindi">
-    <a href="bollywoodmovie55.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/cDMmAwGVYbKMF9GZVEceYeuvx47.jpg" 
-        alt=" Saheb Biwi Aur Gangster Returns (2013) Movie Poster" loading="lazy"></a>
-    <h3> Saheb Biwi Aur Gangster Returns (2013) Hindi 480p | 400MB | 720p | 1.2GB | 1080p | 4GB </h3>
-</div>
-<!-- == Post 101 == -->
-<div class="movie-card" data-category="comedy/hollywood/english/hindi">
-    <a href="hollywoodmovie43.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/cKZu0Fdkj7dmwbfMpgDqVVCkLJQ.jpg" 
-        alt=" The Hangover Part II (2011) Movie Poster" loading="lazy"></a>
-    <h3> The Hangover Part II (2011) Dual Audio (Hindi-English) 480p | 350MB | 720p | 1GB | 1080p | 3.8GB Blue-Ray  </h3>
-</div>
-<!-- == Post 100 == -->
-<div class="movie-card" data-category="action/adventure/sci-fi/superhero/hollywood/english/hindi">
-    <a href="hollywoodmovie42.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/hNEokmUke0dazoBhttFN0o3L7Xv.jpg" 
-        alt=" X-Men 5: First Class (2011) Movie Poster" loading="lazy"></a>
-    <h3> X-Men 5: First Class (2011) Dual Audio (Hindi-English) 480p | 500MB | 720p | 1GB | 1080p | 2GB Blue-Ray  </h3>
-</div>
-<!-- == Post 100 == -->
-<div class="movie-card" data-category="action/adventure/sci-fi/superhero/hollywood/english/hindi">
-    <a href="hollywoodmovie41.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/bst4alFUXCxISwdRUKSMhhkrX1M.jpg" 
-        alt=" X-Men 2 (2003) Movie Poster" loading="lazy"></a>
-    <h3> X-Men 2 (2003) Dual Audio (Hindi-English) 480p | 410MB | 720p | 1.4GB | 1080p | 2.7GB Blue-Ray  </h3>
-</div>
-<!-- == Post 99 == -->
-<div class="movie-card" data-category="action/adventure/sci-fi/superhero/hollywood/english/hindi">
-    <a href="hollywoodmovie40.html" target="_blank">
-        <img src="https://m.media-amazon.com/images/M/MV5BNGE0MGJhNzQtMTMxMy00ODk5LTg5ZWEtMGE3ZGU1YTliMDFkXkEyXkFqcGc@._V1_QL75_UX238.5_.jpg" 
-        alt=" X-Men (2000) Movie Poster" loading="lazy"></a>
-    <h3> X-Men (2000) Dual Audio (Hindi-English) 480p | 350MB | 720p | 700MB   </h3>
-</div>
-<!-- == Post 98 == -->
-<div class="movie-card" data-category="comedy/family/bollywood/hindi">
-    <a href="bollywoodmovie54.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/htmR4Id9iS0p7CIpLUKRlslwoZ0.jpg" 
-        alt=" Ferrari Ki Sawaari (2012) Movie Poster" loading="lazy"></a>
-    <h3> Ferrari Ki Sawaari (2012) Hindi 480p | 350MB | 720p | 1.1GB | 1080p | 3.8GB </h3>
-</div>
-<!-- == Post 97 == -->
-<div class="movie-card" data-category="comedy/drama/bollywood/hindi">
-    <a href="bollywoodmovie53.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/8ARLxG5RbsHMxDYhUFEXq2jSSI1.jpg" 
-        alt=" Desi Boyz (2011) Movie Poster" loading="lazy"></a>
-    <h3> Desi Boyz (2011) Hindi 480p | 300MB | 720p | 1GB | </h3>
-</div>
-<!-- == Post 96 == -->
-<div class="movie-card" data-category="drama/adventure/fantacy/romance/hollywood/english/hindi">
-    <a href="hollywoodmovie39.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/7IGdPaKujv0BjI0Zd0m0a4CzEjJ.jpg" 
-        alt=" The Twilight Saga: Breaking Dawn - Part 2 (2012) Movie Poster" loading="lazy"></a>
-    <h3> The Twilight Saga: Breaking Dawn - Part 2 (2011) Dual Audio (Hindi-English) 480p | 350MB | 720p | 950MB | 1080p | 3.7GB  </h3>
-</div>
-<!-- == Post 95 == -->
-<div class="movie-card" data-category="adventure/fantacy/romance/hollywood/english/hindi">
-    <a href="hollywoodmovie38.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/qs8LsHKYlVRmJbFUiSUhhRAygwj.jpg" 
-        alt=" The Twilight Saga: Breaking Dawn - Part 1 (2011) Movie Poster" loading="lazy"></a>
-    <h3> The Twilight Saga: Breaking Dawn - Part 1 (2011) Dual Audio (Hindi-English) 480p | 350MB | 720p | 800MB | 1080p | 3GB  </h3>
-</div>
-<!-- == Post 94 == -->
-<div class="movie-card" data-category="comedy/action/bollywood/hindi">
-    <a href="bollywoodmovie52.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/7FMYqomLfFnVhsA7PnWX0GLEB0O.jpg" 
-        alt=" Delhi Belly (2011) Movie Poster" loading="lazy"></a>
-    <h3> Delhi Belly (2011) Hindi 480p | 350MB | 720p | 800MB | 1080p | 3GB </h3>
-</div>
-<!-- == Post 93 == -->
-<div class="movie-card" data-category="comedy/bollywood/hindi">
-    <a href="bollywoodmovie51.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/1jz15NthZjMHG8sKajS6D6QJkeb.jpg" 
-        alt=" Thank You (2011) Movie Poster" loading="lazy"></a>
-    <h3> Thank You (2011) Hindi 480p | 400MB | 720p | 1.2GB | 1080p | 3.8GB </h3>
-</div>
-<!-- == Post 92 == -->
-<div class="movie-card" data-category="horror/mystery/comedy/hollywood/english/hindi">
-    <a href="hollywoodmovie37.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/zZZe5wn0udlhMtdlDjN4NB72R6e.jpg" 
-        alt=" The Cabin in the Woods (2012) Movie Poster" loading="lazy"></a>
-    <h3> The Cabin in the Woods (2012) Dual Audio (Hindi-English) 480p | 300MB | 720p | 800MB | 1080p | 3.2GB  </h3>
-</div>
-<!-- == Post 91 == -->
-<div class="movie-card" data-category="comedy/crime/bollywood/hindi">
-    <a href="bollywoodmovie50.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/ysGYrjeAdIXZULLVdGzwliqGHyU.jpg" 
-        alt=" Double Dhamaal (2011) Movie Poster" loading="lazy"></a>
-    <h3> Double Dhamaal (2011) Hindi 480p | 400MB | 720p | 1GB | 1080p | 4GB </h3>
-</div>
-<!-- == Post 90 == -->
-<div class="movie-card" data-category="drama/comedy/romance/bollywood/hindi">
-    <a href="bollywoodmovie49.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/hKO9O715wYxjkQSEv47giCYcyO8.jpg" 
-        alt=" Zindagi Na Milegi Dobara (2011) Movie Poster" loading="lazy"></a>
-    <h3> Zindagi Na Milegi Dobara (2011) Hindi 480p | 500MB | 720p | 1.2GB | 1080p | 2.6GB </h3>
-</div>     
-<!-- == Post 89 == -->
-<div class="movie-card" data-category="action/thriller/bollywood/hindi">
-    <a href="bollywoodmovie48.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/2gBM8c36HIwn4vc2UuMeliqiCKY.jpg" 
-        alt=" Don 2 (2011) Movie Poster" loading="lazy"></a>
-    <h3> Don 2 (2011) Hindi 480p | 400MB | 720p | 1.3GB | 1080p | 4GB </h3>
-</div> 
-<!-- == Post 88 == -->
-<div class="movie-card" data-category="crime/drama/thriller/bollywood/hindi">
-    <a href="bollywoodmovie47.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/qkPmQx9GMuwTDEuIUMoeN6DEqVA.jpg" 
-        alt=" Once Upon a Time in Mumbaai (2010) Movie Poster" loading="lazy"></a>
-    <h3> Once Upon a Time in Mumbaai (2010) Hindi 480p | 400MB | 720p | 1GB | 1080p | 4GB </h3>
-</div> 
-<!-- == Post 87 == -->
-<div class="movie-card" data-category="romance/drama/hollywood/english/hindi">
-    <a href="hollywoodmovie36.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/ze0xCPY3rieewvgriZ9xtcWSRVN.jpg" 
-        alt=" Step Up 3D (2010) Movie Poster" loading="lazy"></a>
-    <h3> Step Up 3D (2010) Dual Audio (Hindi-English) 480p | 400MB | 720p | 950MB </h3>
-</div>
-<!-- == Post 86 == -->
-<div class="movie-card" data-category="adventure/drama/thriller/hollywood/english/hindi">
-    <a href="bollywoodmovie46.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/h0RMdn0rfl9l5hWXz3tUh6QVkhi.jpg" 
-        alt=" 127 Hours (2010) Movie Poster" loading="lazy"></a>
-    <h3> 127 Hours (2010) Hindi 480p | 300MB | 720p | 800MB | 1080p | 1.7GB </h3>
-</div> 
-<!-- == Post 85 == -->
-<div class="movie-card" data-category="comedy/drama/romance/bollywood/hindi">
-    <a href="bollywoodmovie45.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/m8x6I2qf3R98HtF4DmJXcdxCU64.jpg" 
-        alt=" Rab Ne Bana Di Jodi (2008) Movie Poster" loading="lazy"></a>
-    <h3> Rab Ne Bana Di Jodi (2008) Hindi 480p | 450MB | 720p | 1.3GB | 1080p | 4.7GB - WEB-DL </h3>
-</div> 
-<!-- == Post 84 == -->
-<div class="movie-card" data-category="fantacy/action/bollywood/hindi">
-    <a href="bollywoodmovie44.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/lL7EaJNdXeFR8LkgnBQgPAneq8U.jpg" 
-        alt=" Suryavanshi (1992) Movie Poster" loading="lazy"></a>
-    <h3> Suryavanshi (1992) Hindi 480p | 450MB | 720p | 1.4GB | 1080p | 4GB - WEB-DL </h3>
-</div> 
-<!-- == Post 83 == -->
-<div class="movie-card" data-category="romance/drama/bollywood/hindi">
-    <a href="bollywoodmovie43.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/kuoJvw45TobVp5QcyV16nK26NFx.jpg" 
-        alt=" Hum Dil De Chuke Sanam (1999) Movie Poster" loading="lazy"></a>
-    <h3> Hum Dil De Chuke Sanam (1999) Hindi 480p | 500MB | 720p | 1.6GB | 1080p | 4.8GB - WEB-DL </h3>
-</div> 
-<!-- == Post 82 == -->
-<div class="movie-card" data-category="romance/sci-fi/comedy/bollywood/hindi">
-    <a href="bollywoodmovie42.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/8YzWja1cgzIaaKys6Ajk95kJxQY.jpg" 
-        alt=" Action Replayy (2010) Movie Poster" loading="lazy"></a>
-    <h3> Action Replayy (2010) Hindi 480p | 400MB | 720p | 1GB | 1080p | 3GB - Blue-Ray </h3>
-</div> 
-<!-- == Post 81 == -->
-<div class="movie-card" data-category="romance/drama/comedy/bollywood/hindi">
-    <a href="bollywoodmovie41.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/36hkylLil37eF45uIeSTe31NRVq.jpg" 
-        alt=" Love Aaj Kal (2009) Movie Poster" loading="lazy"></a>
-    <h3> Love Aaj Kal (2009) Hindi 480p | 350MB | 720p | 1GB | 1080p | 4GB - Blue-Ray </h3>
-</div> 
-<!-- == Post 80 == -->
-<div class="movie-card" data-category="romance/action/bollywood/hindi">
-    <a href="bollywoodmovie40.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/kFgOQAYVAmjuZCIvtWYWpnpYJDi.jpg" 
-        alt=" Yeh Hai Mumbai Meri Jaan (1999) Movie Poster" loading="lazy"></a>
-    <h3> Yeh Hai Mumbai Meri Jaan (1999) Hindi 480p | 350MB | 720p | 1GB | 1080p | 3.4GB - WEB-DL </h3>
-</div> 
-<!-- == Post 79 == -->
-<div class="movie-card" data-category="adventure/comedy/action/bollywood/hindi">
-    <a href="hollywoodmovie35.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/9wdw5H018bgIM8bK2HuDvh8BwOh.jpg" 
-        alt=" Casino Royale (1967) Movie Poster" loading="lazy"></a>
-    <h3> Casino Royale (1967) Dual Audio (Hindi-English) 480p | 550MB | 720p | 1.2GB | 1080p | 2.7GB - WEB-DL </h3>
-</div> 
-<!-- == Post 78 == -->
-<div class="movie-card" data-category="thriller/action/bollywood/hindi">
-    <a href="bollywoodmovie39.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/fih088o07oF0w1jbBsC1mzmLAvS.jpg" 
-        alt=" Hathyar (2002) Movie Poster" loading="lazy"></a>
-    <h3> Hathyar (2002) Hindi 480p | 350MB | 720p | 1.1GB | 1080p | 3.5GB - WEB-DL </h3>
-</div> 
-<!-- == Post 77 == -->
-<div class="movie-card" data-category="music/action/bollywood/hindi">
-    <a href="bollywoodmovie38.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/f3uvAGmxMdOPmwycHE13kxTqFKc.jpg" 
-        alt=" Khal Nayak (1993) Movie Poster" loading="lazy"></a>
-    <h3> Khal Nayak (1993) Hindi 480p | 550MB | 720p | 1.4GB | 1080p | 4GB - WEB-DL </h3>
-</div> 
-<!-- == Post 76 == -->
-<div class="movie-card" data-category="drama/crime/action/bollywood/hindi">
-    <a href="bollywoodmovie37.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/fsB57eZ0EJ9nXLxgfjQG9iYiswH.jpg" 
-        alt=" Vaastav (1999) Movie Poster" loading="lazy"></a>
-    <h3> Vaastav (1999) Hindi 480p | 400MB | 720p | 1.2GB | 1080p | 3.6GB - WEB-DL </h3>
-</div> 
-<!-- == Post 75 == -->
-<div class="movie-card" data-category="drama/romance/action/bollywood/hindi">
-    <a href="bollywoodmovie36.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/zqEnM5Ef8QXcbWrPZ311i2TLSUA.jpg" 
-        alt=" Khushi (2003) Movie Poster" loading="lazy"></a>
-    <h3> Khushi (2003) Hindi 480p | 420MB | 720p | 1.4GB | 1080p | 4.5GB - BlueRay </h3>
-</div> 
-<!-- == Post 74 == -->
-<div class="movie-card" data-category="drama/romance/thriller/bollywood/hindi">
-    <a href="bollywoodmovie35.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/1rNLPwBItoiSVP4EyDpKe50cZHj.jpg"
-        alt=" Sheesha (2005) Movie Poster" loading="lazy"></a>
-    <h3> Sheesha (2005) Hindi 480p | 350MB | 720P | 1GB | 1080p | 2.8GB - BlueRay </h3>
-</div>
-<!-- == Post 73 == -->
-<div class="movie-card" data-category="action/crime/drama/bollywood/hindi">
-    <a href="bollywoodmovie34.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/lfVjv2SqiqgCfo0EWwLYjpgTlVu.jpg" 
-        alt=" Krantiveer (1994) Movie Poster" loading="lazy"></a>
-    <h3> Krantiveer (1994) Hindi 480p | 400MB | 720p | 1GB | 1080p | 3.8GB - WEB-DL </h3>
-</div> 
-<!-- == Post 72 == -->
-<div class="movie-card" data-category="action/crime/thriller/bollywood/hindi">
-    <a href="bollywoodmovie33.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/zvs6wuMCdn0zTe3U7yeXboiHjin.jpg" 
-        alt=" Kalyug (2005) Movie Poster" loading="lazy"></a>
-    <h3> Kalyug (2005) Hindi 480p | 300MB | 720p | 1GB | 1080p | 3GB - BlueRay </h3>
-</div> 
-<!-- == Post 71 == -->
-<div class="movie-card" data-category="crime/drama/bollywood/hindi">
-    <a href="bollywoodmovie32.html" target="_blank">
-        <img src="https://www.themoviedb.org/t/p/w1280/y3D8ziFHDt9wrid8XQdBC2dzGTH.jpg" 
-        alt=" Omkara (2006) Movie Poster" loading="lazy"></a>
-    <h3> Omkara (2006) Hindi 480p | 400MB | 720p | 1GB | 1080p | 4GB - BlueRay </h3>
-</div> 
-<!-- == Post 70 == ===== Cartoon =======  --> 
-<div class="movie-card" data-category="fantacy/sci-fi/adventure/family/animation/cartoon/hindi/english">
-    <a href="cartoonmovie7.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/lvi0MjGJvWPAAqQaxCwwMsLqBG8.jpg" 
-        alt="Doraemon: Nobita's Great Battle of the Mermaid King (2010) Movie Poster" loading="lazy"></a>
-    <h3> Doraemon: Nobita's Great Battle of the Mermaid King (2010) Dual Audio (Hindi-English) 480p | 350MB || 720p | 750MB - BlueRay </h3>
-</div>
-<!-- == Post 69 == -->
-<div class="movie-card" data-category="action/comedy/crime/hollywood/hindi/english">
-    <a href="hollywoodmovie34.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/pY35tW8BMAjZewl87OxjXK8ui02.jpg" 
-        alt=" Torque (2004) Movie Poster" loading="lazy"></a>
-    <h3> Torque (2004) Dual Audio (Hindi-English) 480p | 290MB || 720p | 900MB | 1080p | 2GB - BlueRay </h3>
-</div>
-<!-- == Post 68 == -->
-<div class="movie-card" data-category="comedy/bollywood/hindi">
-    <a href="bollywoodmovie31.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/bq7qs9HEH9OIdGjzUUmXGgs5HCt.jpg" 
-        alt=" Dhol (2007) Movie Poster" loading="lazy"></a>
-    <h3> Dhol (2007) Hindi 480p | 450MB | 720p | 1GB | 1080p | 3.7GB - BlueRay </h3>
-</div>  
-<!-- == Post 67 == -->
-<div class="movie-card" data-category="romance/fantacy/drama/bollywood/hindi">
-    <a href="bollywoodmovie30.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/1oQ8mBfBKcVT758y1949ULkSXER.jpg" 
-        alt=" Paheli (2005) Movie Poster" loading="lazy"></a>
-    <h3> Paheli (2005) Hindi 480p | 370MB | 720p | 1.2GB | 1080p | 4GB - BlueRay </h3>
-</div>   
-<!-- == Post 66 == -->
-<div class="movie-card" data-category="action/fantacy/adventure/hollywood/hindi/english">
-    <a href="hollywoodmovie33.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/siNGMLdOUNYLEGtlsnmQcpO2XZX.jpg" 
-        alt=" Prince of Persia: The Sands of Time (2010) Movie Poster" loading="lazy"></a>
-    <h3> Prince of Persia: The Sands of Time (2010) Dual Audio (Hindi-English) 480p | 380MB || 720p | 1GB | 1080p | 3.8GB - BlueRay </h3>
-</div>
-<!-- == Post 65 == -->
-<div class="movie-card" data-category="action/drama/bollywood/hindi">
-    <a href="bollywoodmovie29.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/nDqAx0z6u8KJ4arJy40eaKTXB8M.jpg" 
-        alt=" Ram Lakhan (1989) Movie Poster" loading="lazy"></a>
-    <h3> Ram Lakhan (1989) Hindi 480p | 500MB | 720p | 1.6GB | 1080p | 4.6GB - BlueRay </h3>
-</div>   
-<!-- == Post 64 == -->
-<div class="movie-card" data-category="action/fantacy/hollywood/hindi/english">
-    <a href="hollywoodmovie32.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/7DyuV2G0hLEqHeueDfOqhZ2DVut.jpg" 
-        alt=" Hancock (2008) Movie Poster" loading="lazy"></a>
-    <h3> Hancock (2008) Dual Audio (Hindi-English) 480p | 300MB || 720p | 750MB | 1080p | 4GB - BlueRay </h3>
-</div>
-<!-- == Post 63 == -->
-<div class="movie-card" data-category="comedy/romance/bollywood/hindi">
-    <a href="bollywoodmovie28.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/9PqBPlaO5wLI7LPMaJNLoIiSSSA.jpg" 
-        alt=" Mujhse Shaadi Karogi (2004) Movie Poster" loading="lazy"></a>
-    <h3> Mujhse Shaadi Karogi (2004) Hindi 480p | 400MB | 720p | 1GB | 1080p | 5GB - BlueRay </h3>
-</div>
-<!-- == Post 62 == -->
-<div class="movie-card" data-category="comedy/crime/bollywood/hindi">
-    <a href="bollywoodmovie27.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/f18coCzINl2kgXY7a18285S1bVV.jpg" 
-        alt=" International Khiladi (1999) Movie Poster" loading="lazy"></a>
-    <h3> International Khiladi (1999) Hindi 480p | 400MB | 720p | 1.3GB | 1080p | 2.2GB - BlueRay </h3>
-</div>
-<!-- == Post 61 == -->
-<div class="movie-card" data-category="comedy/crime/bollywood/hindi">
-    <a href="bollywoodmovie26.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/kGYn1rK0XBciKqnGHtLSnzJw6Gf.jpg" 
-        alt=" Malamaal Weekly (2006) Movie Poster" loading="lazy"></a>
-    <h3> Malamaal Weekly (2006) Hindi 480p | 350MB | 720p | 1GB | 1080p | 3.3GB - BlueRay </h3>
-</div>
-<!-- == Post 60 == -->
-<div class="movie-card" data-category="crime/drama/action/thriller/hollywood/hindi/english">
-    <a href="hollywoodmovie31.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/va1wc0OCPlS4EtKP8DR55hSM46c.jpg" 
-        alt=" Daylight Robbery (2008) Movie Poster" loading="lazy"></a>
-    <h3> Daylight Robbery (2008) Dual Audio (Hindi-English) 480p | 300MB || 720p | 900MB | 1080p | 3.5GB - BlueRay </h3>
-</div>
-<!-- == Post 59 == -->
-<div class="movie-card" data-category="action/crime/drama/bollywood/hindi">
-    <a href="bollywoodmovie25.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/gZbY2w5NKuJZ8XBmIPZnG2P7X5L.jpg" 
-        alt=" Apaharan (2005) Movie Poster" loading="lazy"></a>
-    <h3> Apaharan (2005) Hindi 480p | 400MB | 720p | 850MB | 1080p | 4.7GB - BlueRay </h3>
-</div>
-<!-- == Post 58 == -->
-<div class="movie-card" data-category="comedy/hollywood/hindi/english">
-    <a href="hollywoodmovie30.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/A0uS9rHR56FeBtpjVki16M5xxSW.jpg" 
-        alt=" The Hangover (2009) Movie Poster" loading="lazy"></a>
-    <h3> The Hangover (2009) Dual Audio (Hindi-English) 480p | 300MB || 720p | 900MB | 1080p | 3.5GB - BlueRay </h3>
-</div>
-<!-- == Post 57 == ===== Cartoon =======  --> 
-<div class="movie-card" data-category="action/adventure/family/animation/cartoon/hindi/english">
-    <a href="cartoonmovie6.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/2LqaLgk4Z226KkgPJuiOQ58wvrm.jpg" 
-        alt="The Incredibles (2004) Movie Poster" loading="lazy"></a>
-    <h3> The Incredibles (2004) Dual Audio (Hindi-English) 480p | 400MB || 720p | 750MB || 1080p | 3GB - BlueRay </h3>
-</div>
-<!-- == Post 56 == -->
-<div class="movie-card" data-category="comedy/romance/drama/bollywood/hindi">
-    <a href="bollywoodmovie24.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/1UpgW67W6Do0xizTuE26bMQFLdL.jpg" 
-        alt=" Wake Up Sid (2009) Movie Poster" loading="lazy"></a>
-    <h3> Wake Up Sid (2009) Hindi 480p | 400MB | 720p | 900MB | 1080p | 4GB - BlueRay </h3>
-</div>
-<!-- == Post 55 == -->
-<div class="movie-card" data-category="thriller/action/crime/drama/bollywood/hindi">
-    <a href="bollywoodmovie23.html" target="_blank">
-        <img src="https://m.media-amazon.com/images/M/MV5BM2FiNThiZGItZGZhNS00ZTU2LTlkY2EtYjlmNjg2NTU3YWM1XkEyXkFqcGc@._V1_QL75_UX129_.jpg" 
-        alt=" Company (2002) Movie Poster" loading="lazy"></a>
-    <h3> Company (2002) Hindi 480p | 370MB | 720p | 1.1GB | 1080p | 3.5GB - BlueRay </h3>
-</div>
-<!-- == Post 54 == -->
-<div class="movie-card" data-category="romance/comedy/drama/bollywood/hindi">
-    <a href="bollywoodmovie22.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/dO0F66lM1jehIH5bsooKSbdz7xG.jpg" 
-        alt=" Namastey London (2007) Movie Poster" loading="lazy"></a>
-    <h3> Namastey London (2007) Hindi 480p | 350MB | 720p | 1.2GB | 1080p | 4GB - BlueRay </h3>
-</div>
-<!-- == Post 53 == -->
-<div class="movie-card" data-category="romance/drama/bollywood/hindi">
-    <a href="bollywoodmovie21.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/zi7Gkgt1PHtC96tXafNzrNQwgRp.jpg" 
-        alt=" Kabhi Kabhie (1976) Movie Poster" loading="lazy"></a>
-    <h3> Kabhi Kabhie (1976) Hindi 480p | 450MB | 720p | 1.5GB | 1080p | 5GB - BlueRay </h3>
-</div>
-<!-- == Post 52 == -->
-<div class="movie-card" data-category="romance/comedy/drama/bollywood/hindi">
-    <a href="bollywoodmovie20.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/mHByEO7KRpABh1HvNoel3L6Y74O.jpg" 
-        alt=" Mujhse Dosti Karoge! (2002) Movie Poster" loading="lazy"></a>
-    <h3> Mujhse Dosti Karoge! (2002) Hindi 480p | 400MB | 720p | 1.3GB | 1080p | 4.3GB - BlueRay </h3>
-</div>
-<!-- == Post 51 == -->
-<div class="movie-card" data-category="romance/drama/bollywood/hindi">
-    <a href="bollywoodmovie19.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/e5zFYX3hW1TNeFCzRw7ET2DxRPm.jpg" 
-        alt=" Vivah (2006) Movie Poster" loading="lazy"></a>
-    <h3> Vivah (2006) Hindi 480p | 450MB | 720p | 1.4GB | 1080p | 4.8GB - BlueRay </h3>
-</div>
-<!-- == Post 51 == -->
-<div class="movie-card" data-category="drama/sci-fi/mystery/hollywood/hindi/english">
-    <a href="hollywoodmovie29.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/Ag2B2KHKQPukjH7WutmgnnSNurZ.jpg" 
-        alt=" The Prestige (2006) Movie Poster" loading="lazy"></a>
-    <h3> The Prestige (2006) Dual Audio (Hindi-English) 480p | 350MB || 720p | 700MB | 1080p | 3.2GB - BlueRay </h3>
-</div>
-<!-- == Post 50 == -->
-<div class="movie-card" data-category="romance/drama/bollywood/hindi">
-    <a href="bollywoodmovie18.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/5Pe8sACQOQ6Ht6mPR5tUNwpGHgy.jpg" 
-        alt=" Humko Deewana Kar Gaye (2006) Movie Poster" loading="lazy"></a>
-    <h3> Humko Deewana Kar Gaye (2006) Hindi 480p | 420MB | 720p | 1.4GB | 1080p | 4.5GB - BlueRay </h3>
-</div>
-<!-- == Post 49 == -->
-<div class="movie-card" data-category="action/thriller/bollywood/hindi">
-    <a href="bollywoodmovie17.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/1k45jZdMMo7i8GuMI749lEu5Kkr.jpg" 
-        alt=" Prahaar: The Final Attack (1991) Movie Poster" loading="lazy"></a>
-    <h3> Prahaar: The Final Attack (1991) Hindi 480p | 400MB | 720p | 1.2GB | 1080p | 3.8GB - BlueRay </h3>
-</div>
-<!-- == Post 48 == -->
-<div class="movie-card" data-category="comedy/action/war/hollywood/hindi/english">
-    <a href="hollywoodmovie27.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/fClJQW8xn8wHOFqoA4jUn0PZh1f.jpg" 
-        alt="Three Kings (1999) Movie Poster" loading="lazy"></a>
-    <h3> Three Kings (1999) Dual Audio (Hindi-English) 480p | 370MB || 720p | 1.8GB - BlueRay </h3>
-</div>
-<!-- == Post 47 == ===== Cartoon =======  --> 
-<div class="movie-card" data-category="comedy/family/fantacy/animation/hindi/english">
-    <a href="cartoonmovie5.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/t3vaWRPSf6WjDSamIkKDs1iQWna.jpg" 
-        alt="Ratatouille (2007) Movie Poster" loading="lazy"></a>
-    <h3> Ratatouille (2007) Dual Audio (Hindi-English) 480p | 370MB || 720p | 730MB || 1080p | 1.5GB - BlueRay </h3>
-</div>
-<!-- == Post 46 == -->
-<div class="movie-card" data-category="crime/comedy/bollywood/hindi">
-    <a href="bollywoodmovie16.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/8owptcZPbNIqugAHQOzawgRQM5s.jpg" 
-        alt=" Krazzy 4 (2008) Movie Poster" loading="lazy"></a>
-    <h3> Krazzy 4 (2008) Hindi 480p | 300MB | 720p | 900MB | 1080p | 1.8GB - BlueRay </h3>
-</div>
-<!-- == Post 45 == -->
-<div class="movie-card" data-category="fantacy/action/sci-fi/hollywood/hindi/english">
-    <a href="hollywoodmovie28.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/xFZH2l9UOyIclk2ZFWNHQ38B2RP.jpg" 
-        alt="Daybreakers (2010) Movie Poster" loading="lazy"></a>
-    <h3> Daybreakers (2010) Dual Audio (Hindi-English) 480p | 300MB || 720p | 800MB || 1080p | 2.4GB - BlueRay </h3>
-</div>
-<!-- == Post 44 == -->
-<div class="movie-card" data-category="adventure/action/sci-fi/hollywood/hindi/english">
-    <a href="hollywoodmovie26.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/pLBb0whOzVDtJvyD4DPeQyQNOqp.jpg" 
-        alt="Transformers: Revenge of the Fallen (2009) Movie Poster" loading="lazy"></a>
-    <h3> Transformers: Revenge of the Fallen (2009) Dual Audio (Hindi-English) 480p | 460MB || 720p | 1.1GB || 1080p | 4.62GB || 2160p 4K | 19.9GB - BlueRay </h3>
-</div>
-<!-- == Post 43 == -->
-  <div class="movie-card" data-category="adventure/sci-fi/action/hollywood/hindi/english">
-    <a href="hollywoodmovie25.html" target="_blank">
-       <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/yj8LbTju1p7CUJg7US2unSBk33s.jpg" 
-       alt=" X-Men 4 Origins: Wolverine (2009) Movie Poster" loading="lazy"></a>
-    <h3> X-Men 4 Origins: Wolverine (2009) Dual Audio (Hindi-English) 480p | 330MB || 720p | 700MB || 1080p | 2.6GB - BlueRay</h3>
-  </div>
-<!-- == Post 42 == -->
-<div class="movie-card" data-category="adventure/romance/fantacy/drama/hollywood/hindi/english">
-    <a href="hollywoodmovie24.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/k2qTooPlHffgNABNWxeJdGMglPK.jpg" 
-        alt="The Twilight Saga: New Moon (2009) Movie Poster" loading="lazy"></a>
-    <h3> The Twilight Saga: New Moon (2009) Dual Audio (Hindi-English) 480p | 400MB || 720p | 560MB || 1080p | 7.7GB - BlueRay </h3>
-</div>
-<!-- == Post 41 == -->
-<div class="movie-card" data-category="action/crime/thriller/hollywood/hindi/english">
-    <a href="hollywoodmovie23.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/qJ2tW6WMUDux911r6m7haRef0WH.jpg" 
-        alt="The Dark Knight (2008) Movie Poster" loading="lazy"></a>
-    <h3>Batman: The Dark Knight (2008) Dual Audio (Hindi-English) 480p | 450MB || 720p | 1GB || 1080p | 3GB || 4K HDR | 16.5GB - BlueRay </h3>
-</div>
-  <!-- == Post 40 == -->
-<div class="movie-card" data-category="action/adventure/crime/drama/bollywood/hindi">
-    <a href="bollywoodmovie15.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/1ptl9Dq51jXpUNotg6CwHWZxoaK.jpg" 
-        alt=" Sarkar Raj (2008) Movie Poster" loading="lazy"></a>
-    <h3> Sarkar Raj (2008) Hindi 480p | 400MB | 720p | 1GB - BlueRay </h3>
-</div>
-<!-- == Post 39 == -->
-<div class="movie-card" data-category="romance/fantacy/drama/hollywood/hindi/english">
-    <a href="hollywoodmovie22.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/3Gkb6jm6962ADUPaCBqzz9CTbn9.jpg" 
-        alt="Twilight (2008) Movie Poster" loading="lazy"></a>
-    <h3> Twilight (2008) Dual Audio (Hindi-English) 480p | 300MB || 720p | 900MB - BlueRay </h3>
-</div>
-  <!-- == Post 38 == -->
-<div class="movie-card" data-category="drama/bollywood/hindi">
-    <a href="bollywoodmovie14.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/6p7eoDgHughtjhr2O3Akkbt1165.jpg" 
-        alt=" Firaaq (2009) Movie Poster" loading="lazy"></a>
-    <h3> Firaaq (2009) Hindi 480p | 300MB | 720p | 1GB - BlueRay </h3>
-</div>
-  <!-- == Post 37 == -->
-<div class="movie-card" data-category="romance/crime/drama/bollywood/hindi">
-    <a href="bollywoodmovie13.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/4QRFa5FjA27hC3ZnHfzAjeTUt0Q.jpg" 
-        alt=" Jannat (2008) Movie Poster" loading="lazy"></a>
-    <h3> Jannat (2008) Hindi 480p | 400MB | 720p | 1GB | 1080p | 4GB - BlueRay </h3>
-</div>
-<!-- == Post 36 == -->
-<div class="movie-card" data-category="adventure/action/drama/thriller/hollywood">
-    <a href="hollywoodmovie21.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/fDPdjGc8SUEDWfTwMaZlCE6NSi3.jpg" 
-        alt="Poseidon (2006) Movie Poster" loading="lazy"></a>
-    <h3> Poseidon (2006) Dual Audio (Hindi-English) 480p | 300MB || 720p | 900MB - BlueRay </h3>
-</div>
-  <!-- == Post 35 == -->
-<div class="movie-card" data-category="gangster/thriller/crime/action/bollywood">
-    <a href="bollywoodmovie12.html" target="_blank">
-        <img src="https://m.media-amazon.com/images/M/MV5BNDE5YmFhODgtMzg1Mi00ZDlmLWFhNjYtY2YwNTUwZTU5MGJiXkEyXkFqcGc@._V1_QL75_UX226.5_.jpg" 
-        alt=" Don (2006) Movie Poster" loading="lazy"></a>
-    <h3> Don (2006) Hindi 480p | 450MB | 720p | 1.5GB | 1080p | 5GB - BlueRay </h3>
-</div>
-  <!-- == Post 34 == -->
-<div class="movie-card" data-category="drama/crime/action/bollywood">
-    <a href="bollywoodmovie11.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/rxruLUuejw1By5KMZVbhN8VJv9O.jpg" 
-        alt=" Sarkar (2005) Movie Poster" loading="lazy"></a>
-    <h3> Sarkar (2005) Hindi 480p | 300MB | 720p | 1GB | 1080p | 4GB - BlueRay </h3>
-</div>
-<!-- == Post 33 == -->
-<div class="movie-card" data-category="comedy/romance/hollywood">
-    <a href="hollywoodmovie20.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/4IvM4qnzlo62oLmS54FtyRt54ze.jpg" 
-        alt="National Lampoon's Van Wilder (2002) Movie Poster" loading="lazy"></a>
-    <h3> National Lampoon's Van Wilder (2002) Dual Audio (Hindi-English) 480p | 350MB || 720p | 800MB || 1080p | 3.6GB - BlueRay </h3>
-</div>
-  <!-- == Post 32 == -->
-<div class="movie-card" data-category="drama/action/bollywood">
-    <a href="bollywoodmovie10.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/i6XJCzajVcnfh5ljAn7AGub5vih.jpg" 
-        alt=" Sarfarosh (1999) Movie Poster" loading="lazy"></a>
-    <h3> Sarfarosh (1999) Hindi 480p | 450MB | 720p | 1.4GB | 1080p | 4.7GB - BlueRay </h3>
-</div>
-  <!-- == Post 31 == -->
-<div class="movie-card" data-category="history/war/drama/romance/action/bollywood">
-    <a href="bollywoodmovie9.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/ckFDMqLjhsYo2kH3X5auV1NnjPM.jpg" 
-        alt="Aśoka (2001) Movie Poster" loading="lazy"></a>
-    <h3> Aśoka (2001) Hindi 480p | 500MB || 720p | 1.5GB | 1080p | 5GB - BlueRay </h3>
-</div>
-<!-- == Post 30 == -->
-<div class="movie-card" data-category="drama/fantacy/romance/hollywood">
-    <a href="hollywoodmovie19.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/fDPAjvfPMomkKF7cMRmL5Anak61.jpg" 
-        alt="Meet Joe Black (1998) Movie Poster" loading="lazy"></a>
-    <h3> Meet Joe Black (1998) Dual Audio (Hindi-English) 480p | 550MB || 720p | 1.4GB || 1080p | 4GB - BlueRay </h3>
-</div>
-<!-- == Post 29 == -->
-<div class="movie-card" data-category="comedy/adventure/family/crime/hollywood">
-    <a href="hollywoodmovie18.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/21U2jwl36hoTHsXB3fDuIQkcchu.jpg" 
-        alt="Baby's Day Out (1994) Movie Poster" loading="lazy"></a>
-    <h3> Baby's Day Out (1994) Dual Audio (Hindi-English) 480p | 300MB || 720p | 850MB - BlueRay </h3>
-</div>
-<!-- == Post 28 == -->
-<div class="movie-card" data-category="comedy/drama/romance/action/bollywood">
-    <a href="bollywoodmovie8.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/qCE7mktMbGb6o6y5QJPg6bDMcpR.jpg" 
-        alt="Run (2004) Movie Poster" loading="lazy"></a>
-    <h3> Run (2004) Hindi 480p | 780MB || 720p | 1.5GB | 1080p | 2.9GB - BlueRay </h3>
-</div>
-<!-- == 27 == -->
-<div class="movie-card" data-category="comedy/drama/bollywood">
-    <a href="bollywoodmovie7.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/nZNUTxGsSB4nLEC9Bpa2xfu81qV.jpg" 
-        alt="Munna Bhai M.B.B.S. (2003) Movie Poster" loading="lazy"></a>
-    <h3> Munna Bhai M.B.B.S. (2003) Hindi 480p | 400MB || 720p | 1.23GB | 1080p | 4GB - BlueRay </h3>
-</div>
-<!-- == 26 == -->
-<div class="movie-card" data-category="adventure/sci--fi/family/animation/cartoon">
-    <a href="cartoonmovie4.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/kdBLKFviJckRXOCgPqkTQK16Rq0.jpg" 
-        alt="Doraemon: Nobita and the Windmasters (2003) Movie Poster" loading="lazy"></a>
-    <h3>Doraemon: Nobita and the Windmasters (2003) Dual Audio (Hindi-English) 480p | 450MB || 720p | 850MB - BlueRay </h3>
-</div>
-<!-- == 25 == -->
-<div class="movie-card" data-category="adventure/thriller/sci--fi/action/hollywood">
-    <a href="hollywoodmovie17.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/aA5qHS0FbSXO8PxcxUIHbDrJyuh.jpg" 
-        alt="The Matrix Reloaded (2003) Movie Poster" loading="lazy"></a>
-    <h3>The Matrix Reloaded (2003) Dual Audio (Hindi-English) 480p | 480MB || 720p | 1.2GB || 1080p | 2GB - BlueRay </h3>
-</div>
-<!-- == 24 == -->
-<div class="movie-card" data-category="adventure/thriller/sci--fi/action/hollywood">
-    <a href="hollywoodmovie16.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/bkkS61w94ZVMNVd8KEyyJl2tnY5.jpg" 
-        alt="The Matrix Revolutions (2003) Movie Poster" loading="lazy"></a>
-    <h3>The Matrix Revolutions (2003) Dual Audio (Hindi-English) 480p | 450MB || 720p | 1.4GB || 1080p | 3.3GB - BlueRay </h3>
-</div>
-<!-- == 23 == -->
-<div class="movie-card" data-category="adventure/thriller/mustery/action/bollywood">
-    <a href="bollywoodmovie6.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/yUSL24kpHc9Nls4Pohia4shgcIM.jpg" 
-        alt="Swades (2004) Movie Poster" loading="lazy"></a>
-    <h3> Swades (2004) Hindi 480p | 550MB || 720p | 1.70GB | 1080p | 5.42GB - BlueRay </h3>
-</div>
-<!-- == 22 == -->
-<div class="movie-card" data-category="adventure/thriller/mustery/action/hollywood">
-    <a href="hm15.html" target="_blank">
-        <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/20MSnfTICmwvAs2YJTqcSTjwBDc.jpg" 
-        alt="National Treasure (2004) Movie Poster" loading="lazy"></a>
-    <h3>National Treasure (2004) Dual Audio (Hindi-English) 480p | 450MB || 720p | 1.20GB - BlueRay </h3>
-</div>
-<!-- == 21 == -->
-  <div class="movie-card" data-category="adventure/animal adventure/jungle adventure/animation/comedy/family">
-    <a href="car3.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BNmE0MDNmYWEtNWI5OC00YjZiLTg5OTktNDc1MmE0MTk0ZTM4XkEyXkFqcGc@._V1_QL75_UX222_.jpg" 
-       alt=" The Jungle Book 2 (2003) Movie Poster" loading="lazy"></a>
-    <h3> The Jungle Book 2 (2003) Dual Audio (Hindi-English) 480p | 400MB || 720p | 800MB || 1080p | 3.2GB - BlueRay</h3>
-  </div>
-<!-- == 20 == -->
-  <div class="movie-card" data-category="adventure/car action/action/sci-fi">
-    <a href="hm14.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BMTNkOGZjMGMtNDI4Zi00ZDBjLWJhY2UtMzA2YWI1ZGI5OWVhXkEyXkFqcGc@._V1_QL75_UX214.5_.jpg" 
-       alt=" Mad Max 3: Beyond Thunderdome (1985) Movie Poster" loading="lazy"></a>
-    <h3> Mad Max 3: Beyond Thunderdome (1985) Dual Audio (Hindi-English) 480p | 350MB || 720p | 950MB|| 1080p | 2GB - BlueRay</h3>
-  </div>
-<!-- == 19 == -->
-  <div class="movie-card" data-category="romance/musical/drama">
-    <a href="bm5.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BZTdiMWE3NDQtMTRmYi00NmZiLWIzZjUtYjAxMjU3NzJlMTI0XkEyXkFqcGc@._V1_QL75_UX225_.jpg" 
-       alt=" Kabhi Khushi Kabhie Gham... (2001) Movie Poster" loading="lazy"></a>
-    <h3> Kabhi Khushi Kabhie Gham... (2001) Hindi 480p | 500MB || 720p | 2GB || 1080p | 6GB - BlueRay</h3>
-  </div> 
-<!-- == 18 == -->
-  <div class="movie-card" data-category="adventure/urban adventure/sci-fi/action">
-    <a href="hm13.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BZDdlOTFkNjQtNDE4ZS00MTZhLWIwYzktOTI3NjgwMTJkYjcxXkEyXkFqcGc@._V1_QL75_UX231_.jpg" 
-       alt=" X-Men 3: The Last Stand (2006) Movie Poster" loading="lazy"></a>
-    <h3> X-Men 3: The Last Stand (2006) Dual Audio (Hindi-English) 480p | 400MB || 720p | 800MB || 1080p | 3.2GB - BlueRay</h3>
-  </div> 
-<!-- == 17 == -->
-  <div class="movie-card" data-category="drama/romance/crime">
-    <a href="bm4.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BMTBkNDM3YzEtN2Q1My00NTQyLWE5NjEtNTg2ZWZkYWFmOTEyXkEyXkFqcGc@._V1_QL75_UX231_.jpg"
-       alt="Slumdog Millionaire (2008) Movie Poster" loading="lazy"></a>
-    <h3> Slumdog Millionaire (2008) Hindi 480p | 300MB || 720p | 1GB || 1080p | 3GB - BlueRay</h3>
-  </div> 
-<!-- == 16 == -->
-  <div class="movie-card" data-category="drama/romance/action/comedy/thriller/fantacy">
-    <a href="bm3.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BYmQ2MzE2NDEtMzU4Yy00MjU5LWEyMzAtNDczZDExMDUxNzE2XkEyXkFqcGc@._V1_QL75_UX226.5_.jpg"
-       alt=" Om Shanti Om (2007) Movie Poster" loading="lazy"></a>
-    <h3> Om Shanti Om (2007) Hindi 480p | 450MB || 720p | 1.5GB || 1080p | 2.6GB - BlueRay</h3>
-  </div>  
-<!-- == 15 == -->
-  <div class="movie-card" data-category="adventure/jungle adventure/comedy/family/fantacy">
-    <a href="hm10.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BYzVkMjE0MmUtMGNjZi00MDY4LWExMmYtNjRlZGM1OTdiYTY1XkEyXkFqcGc@._V1_QL75_UX225_.jpg" 
-       alt=" Jumanji (1995) Movie Poster" loading="lazy"></a>
-    <h3> Jumanji (1995) Dual Audio (Hindi-English) 480p | 320MB || 720p | 1GB || 1080p | 3GB || 2160p 4K | 14GB - BlueRay</h3>
-  </div> 
-<!-- == 14 == -->
-  <div class="movie-card" data-category="adventure/jungle adventure/horror">
-    <a href="hm9.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BMzFhMjMxNDAtZTZlMC00ZjdlLTkwMDItMjRmNTU4ZDAwZjA0XkEyXkFqcGc@._V1_QL75_UX292.5_.jpg" 
-       alt=" King Kong (1976) Movie Poster" loading="lazy"></a>
-    <h3> King Kong (1976) Dual Audio (Hindi-English) 480p | 430MB || 720p | 1GB  - BlueRay</h3>
-  </div>   
-<!-- == 13 == -->
-  <div class="movie-card" data-category="adventure/thriller/action/sci-fi">
-    <a href="hm11.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BZTYwOGE2ODgtNGExYi00YTUwLTk0MjYtMTk4ZmVlMjExMDdkXkEyXkFqcGc@._V1_QL75_UX229.5_.jpg" 
-       alt="Mad Max: The Road Warrior (1981) Movie Poster" loading="lazy"></a>
-    <h3> Mad Max: The Road Warrior (1981) Dual Audio (Hindi-English) 480p | 300MB || 720p | 700MB || 1080p | 2GB - BlueRay</h3>
-  </div> 
-<!-- == 12 == -->
-  <div class="movie-card" data-category="superhero/thriller/drama/crime/action">
-    <a href="hm7.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BNTFlYTk4OTctMDlhYy00MDAyLWE2MmMtMDc3ZjRmNDk1OTIyXkEyXkFqcGc@._V1_QL75_UX234_.jpg" 
-       alt=" The Punisher (2004) Movie Poster" loading="lazy"></a>
-    <h3> The Punisher (2004) Dual Audio (Hindi-English) 480p | 400MB || 720p HEVC | 650MB || 720p | 1GB || 1080p | 3GB - BlueRay</h3>
-  </div>  
-<!-- == 11 == -->
-  <div class="movie-card" data-category="adventure/thriller/action/sci-fi">
-    <a href="hm8.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BM2I5NTE2YTctYjQwMi00YzMwLWFhZDItNmE4ZjQyOWY0Zjk2XkEyXkFqcGc@._V1_QL75_UX232.5_.jpg" 
-       alt=" Mad Max (1979) Movie Poster" loading="lazy"></a>
-    <h3> Mad Max (1979) Dual Audio (Hindi-English) 480p | 300MB || 720p | 1GB || 1080 | 2GB || - BlueRay</h3>
-  </div>  
-<!-- == 10 == -->
-  <div class="movie-card" data-category="comedy/family/adventure/action/animation">
-    <a href="car2.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BMTk1NzgxNTIzMl5BMl5BanBnXkFtZTgwMDczNjAwNzE@._V1_QL75_UX231_.jpg" 
-       alt=" Tom and Jerry: The Fast and the Furry (2005) Movie Poster" loading="lazy"></a>
-    <h3> Tom and Jerry: The Fast and the Furry (2005) Dual Audio (Hindi-English) 480p | 250MB || 720p | 1GB || 1080p | 2GB - BlueRay</h3>
-  </div>
-<!-- == 9 == -->
-  <div class="movie-card" data-category="adventure/survival/animal adventure/animation">
-    <a href="car1.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BMDBlYzU2OGMtOGJjNi00ZGZjLWIwNjMtYzdiZjkwYWNjZDljXkEyXkFqcGc@._V1_QL75_UX220.5_.jpg" 
-       alt=" Ice Age (2002) Movie Poster" loading="lazy"></a>
-    <h3> Ice Age (2002) Dual Audio (Hindi-English) 480p | 300MB || 720p | 700MB || 1080p | 1.5GB - BlueRay</h3>
-  </div>
-<!-- == 8 == -->
-  <div class="movie-card" data-category="superhero/thriller/crime/action">
-    <a href="hm6.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BMjkxOTJlMzYtNGQ0My00ZjAxLWI5YWYtNTE1NTZhM2I5NmU2XkEyXkFqcGc@._V1_QL75_UX259.5_.jpg" 
-       alt=" The Punisher (1989) Movie Poster" loading="lazy"></a>
-    <h3> The Punisher (1989) Dual Audio (Hindi-English) 480p | 350MB || 720p | 1GB - BlueRay</h3>
-  </div>  
-<!-- == 7 == -->
-  <div class="movie-card" data-category="alien invasion/adventure/sci-fi/family">
-    <a href="hm5.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BNzUyOWVmZWYtMDU3Ni00N2Y2LWFlNDUtZTMwNTAzNzRkZTVhXkEyXkFqcGc@._V1_QL75_UX216_.jpg" 
-       alt=" E.T. the Extra-Terrestrial (1982) Movie Poster" loading="lazy"></a>
-    <h3> E.T. the Extra-Terrestrial (1982) Dual Audio (Hindi-English) 480p | 350MB || 720p | 900MB || 1080p | 1.8GB - BlueRay</h3>
-  </div>
-<!-- == 6 == -->
-  <div class="movie-card" data-category="crime/drama/biography/hystory">
-    <a href="bm.2.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BMTIzMjQyMjA4MV5BMl5BanBnXkFtZTcwNDc3NTkyMQ@@._V1_QL75_UX327_.jpg" 
-       alt=" Bandit Queen (1994) Movie Poster" loading="lazy"></a>
-    <h3> Bandit Queen (1994) [Hindi] 480p | 300MB || 720p | 1GB || 1080p | 3.5GB - BlueRay</h3>
-  </div>
-<!-- === 5 ===-->
-  <div class="movie-card" data-category="action/family/adventure/fantacy/jungle adventure">
-    <a href="hm4.html" target="_blank">
-      <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/zYkffyYCFO1Li1f20MyaAYUaYC4.jpg" alt="The Jungle Book (1942) Movie Poster" loading="lazy"></a>
-    <h3>The Jungle Book (1942) Dual Audio (Hindi-English) 480p | 350MB || 720P | 850MB - HDRip </h3>
-  </div>
-<!-- === 4 ===-->
-  <div class="movie-card" data-category="action/sci-fi/gun-fu/artificial intelligence">
-    <a href="hm3.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BMmNiOGVlZWQtODU5MC00YWQxLTg4OGEtNmUyMjc2ZTRkMmIyXkEyXkFqcGc@._V1_QL75_UX243_.jpg" 
-       alt=" The Matrix (1999) Movie Poster" loading="lazy"></a>
-    <h3>The Matrix (1999) Dual Audio {Hindi-English} 480p | 450MB || 720p | 1.3GB || 1080p | 3GB - BlueRay</h3>
-  </div>
-<!-- === 3 ===-->
-  <div class="movie-card" data-category="action/fantacy/adventure/sci-fi/thriller">
-    <a href="hm2.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BNzhiZDkzZTAtNWJjYi00YmYzLTk1MjEtODUzNjJmOGU4ZjVmXkEyXkFqcGc@._V1_QL75_UX208.5_.jpg" 
-       alt=" Mortal Kombat (1995) Movie Poster" loading="lazy"></a>
-    <h3>Mortal Kombat (1995) Dual Audio (Hindi-English) 480p | 300MB || 720p | 1GB || 1080p | 2GB – BluRay</h3>
-  </div>
-<!-- === 2 ===-->
-  <div class="movie-card" data-category="action/crime/superhero">
-    <a href="hm1.html" target="_blank">
-       <img src="https://m.media-amazon.com/images/M/MV5BZGMzMTc3ZDctNDg5Mi00MzYxLTgyNDEtZTExMDQ3ODkzOGRhXkEyXkFqcGc@._V1_QL75_UX213_.jpg" 
-       alt=" RoboCop (1987) Movie Poster " loading="lazy"></a>
-    <h3>RoboCop (1987)  Dual Audio {Hindi-English} 480p || 450MB || 720p || 950MB – BluRay</h3>
-  </div>
-
-<!-- == 1 == -->
-<div class="movie-card" data-category="action/crime/drama">
-  <a href="bm1.html" target="_blank">
-     <img src="https://m.media-amazon.com/images/M/MV5BZWZkMGJjYmQtODE4NC00NjgyLTg4OWYtOTdjYjM1ODY2ODQ0XkEyXkFqcGc@._V1_QL75_UX244.5_.jpg" 
-     alt="Ghayal (1990) Movie Poster" loading="lazy" ></a>
-  <h3> Ghayal (1990) Hindi 480p & 720p & 1080p – BluRay </h3>
-</div>
-
+    <div class="movie-card" data-category="Crime/hollywood">
+        <a href="hollywoodmovie46.html" onclick="triggerAd()">
+            <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/tVvpFIoteRHNnoZMhdnwIVwJpCA.jpg" alt="Crime 101">
+        </a>
+        <h3>Crime 101 (2026) Dual Audio</h3>
     </div>
 
-<div class="pagination">
-    <button class="page-btn" id="prevBtn">❮ Previous</button>
-    <span id="pageNumber">Page 1</span>
-    <button class="page-btn" id="nextBtn">Next ❯</button>
+    <div class="ad-slot in-grid-ad">
+        <span class="ad-label">Sponsored Content</span>
+        <div id="container-580dbf5d400bc9d2095f9c33b38f24a4"></div>
+        <script async="async" data-cfasync="false" src="https://pl29040808.profitablecpmratenetwork.com/580dbf5d400bc9d2095f9c33b38f24a4/invoke.js"></script>
+    </div>
 </div>
+
+<div class="ad-slot bottom-banner">
+    <span class="ad-label">Advertisement</span>
+    <script type="text/javascript">
+        atOptions = { 'key' : '1fc1cf7710d2fddc388ad8801b586241', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+    </script>
+    <script type="text/javascript" src="https://www.highperformanceformat.com/1fc1cf7710d2fddc388ad8801b586241/invoke.js"></script>
+</div>
+
+<div class="pagination">
+    <button class="page-btn" id="prevBtn" onclick="triggerAd()">❮ Previous</button>
+    <span id="pageNumber">Page 1</span>
+    <button class="page-btn" id="nextBtn" onclick="triggerAd()">Next ❯</button>
+</div>
+
+<script>
+    // Ye function clicks ko handle karta hai
+    function triggerAd() {
+        // console.log Pop-under automatic trigger ho jayega piche background mein.
+        console.log("Movie/Button Clicked - Pop-under Triggered");
+    }
+
+    // Har jagah click par ad trigger karne ka foolproof tareeka
+    document.addEventListener('click', function(e) {
+        // Agar user kisi button ya movie card par click kare, toh ye trigger hoga
+        console.log("Global click registered on: " + e.target.tagName);
+    }, { once: false });
+</script>
 
 <script src="script.js"></script>
 </body>

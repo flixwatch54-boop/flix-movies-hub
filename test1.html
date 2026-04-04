@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlixNova - Home of Movies</title>
+    
+    <script src="https://pl29040807.profitablecpmratenetwork.com/32/ee/fa/32eefa8e7da19d5172f58005fd82fcd1.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .ad-slot {
+            text-align: center;
+            margin: 15px auto;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .ad-label { color: #555; font-size: 10px; margin-bottom: 5px; text-transform: uppercase; }
+        .in-grid-ad {
+            grid-column: span 1;
+            border: 1px dashed #333;
+            min-height: 280px;
+            justify-content: center;
+        }
+        @media (min-width: 768px) { .in-grid-ad { grid-column: span 2; } }
+        .ad-slot iframe { max-width: 100% !important; }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo">🎬 FlixNova</div>
+    <div class="navbar">
+        <a href="index.html">🏠 Home</a> |
+        <a href="about.html">ℹ️ About</a> |
+        <a href="contact.html">📩 Contact</a> |
+        <a href="disclaimer.html">⚠️ Disclaimer</a>
+    </div>
+</header>
+
+<div class="ad-slot top-banner">
+    <span class="ad-label">Advertisement</span>
+    <script type="text/javascript">
+        atOptions = { 'key' : 'a23c20191179565ef9d1ff916583d651', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+    </script>
+    <script type="text/javascript" src="https://www.highperformanceformat.com/a23c20191179565ef9d1ff916583d651/invoke.js"></script>
+</div>
+
+<div class="section-title"><span>🔥</span> Trending Now</div>
+<div class="trending-container">
+    <button class="nav-btn prev-trend" onclick="scrollTrend(-300); triggerAd();">❮</button>
+    <div class="trending-wrapper" id="trendingWrapper">
+        <a href="hollywoodmovie45.html" class="trending-card" onclick="triggerAd()">
+            <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/sTPUg3XtdcKRAS5Vwsi1GYPFhNZ.jpg" alt="Dolly">
+            <div class="trending-info">
+                <h4>Dolly [Hindi/English]</h4>
+                <div class="movie-meta"><span>🎬 2026</span></div>
+            </div>
+        </a> 
+    </div>
+    <button class="nav-btn next-trend" onclick="scrollTrend(300); triggerAd();">❯</button>
+</div>
+
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search Movies & Series ..." onclick="triggerAd()">
+</div>
+
+<div class="category-bar">
+    <button class="btn active" data-category="all" onclick="triggerAd()">All</button>
+    <button class="btn" data-category="action" onclick="triggerAd()">Action</button>
+    <button class="btn" data-category="bollywood" onclick="triggerAd()">Bollywood</button>
+    <button class="btn" data-category="hollywood" onclick="triggerAd()">Hollywood</button>
+</div>
+
+<p id="noResult">❌ No Movie Found</p>
+
+<div class="movies-grid-wrapper" id="movieGrid">
+    <div class="movie-card" data-category="Crime/hollywood">
+        <a href="hollywoodmovie46.html" onclick="triggerAd()">
+            <img src="https://media.themoviedb.org/t/p/w600_and_h900_face/tVvpFIoteRHNnoZMhdnwIVwJpCA.jpg" alt="Crime 101">
+        </a>
+        <h3>Crime 101 (2026) Dual Audio</h3>
+    </div>
+
+    <div class="ad-slot in-grid-ad">
+        <span class="ad-label">Sponsored Content</span>
+        <div id="container-580dbf5d400bc9d2095f9c33b38f24a4"></div>
+        <script async="async" data-cfasync="false" src="https://pl29040808.profitablecpmratenetwork.com/580dbf5d400bc9d2095f9c33b38f24a4/invoke.js"></script>
+    </div>
+</div>
+
+<div class="ad-slot bottom-banner">
+    <span class="ad-label">Advertisement</span>
+    <script type="text/javascript">
+        atOptions = { 'key' : '1fc1cf7710d2fddc388ad8801b586241', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+    </script>
+    <script type="text/javascript" src="https://www.highperformanceformat.com/1fc1cf7710d2fddc388ad8801b586241/invoke.js"></script>
+</div>
+
+<div class="pagination">
+    <button class="page-btn" id="prevBtn" onclick="triggerAd()">❮ Previous</button>
+    <span id="pageNumber">Page 1</span>
+    <button class="page-btn" id="nextBtn" onclick="triggerAd()">Next ❯</button>
+</div>
+
+<script>
+    // Ye function clicks ko handle karta hai
+    function triggerAd() {
+        // console.log Pop-under automatic trigger ho jayega piche background mein.
+        console.log("Movie/Button Clicked - Pop-under Triggered");
+    }
+
+    // Har jagah click par ad trigger karne ka foolproof tareeka
+    document.addEventListener('click', function(e) {
+        // Agar user kisi button ya movie card par click kare, toh ye trigger hoga
+        console.log("Global click registered on: " + e.target.tagName);
+    }, { once: false });
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
